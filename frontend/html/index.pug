@@ -4,16 +4,19 @@ include _assets/bemto/bemto
 include ../components/mixins
 include ../components/head/head
 
+
 doctype html
 html(lang="ru")
-
-block head
 	head
 		+head({
-			"title": "Главная",
-			"description": "Главная страница"
-		})
-			
+					"title": "Главная",
+					"description": "Главная страница",
+					"style_page": "styles/index.css"
+				})
+
++b.BODY.index
+	+e.react-logo
+
 //- +b.BODY.page
 //- 	+e.wrap
 //- 		block header
@@ -30,16 +33,16 @@ block head
 //-         +b.list-item
 //-           +e.link(href="bar")
 //-             +e.text bar
-					
+
 //- 		block content
 //- 			div Контент страниц
 
 //- 		block footer
 //- 			footer 2017 г.
-				
+
 //- 		block vendors
 //- 			//- script( src="libs/jquery/dist/jquery.min.js")
-    
+
 //-     +b.foo.bar__ 
 //-       +e.baz
 //-     //- если на контейнере несколько классов, а внутренние элементы нужны только на основе одного из них, то добавляем в конец этого класса __

@@ -1,0 +1,1 @@
+"use strict";[1,2,3].map(function(t){return t+1});

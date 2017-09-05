@@ -1,4 +1,20 @@
+@import "../components/postcss-reset/mobile.css";
 @import "helpers/_variables.scss";
 @import "helpers/_base.scss";
 @import "helpers/_mixins.scss";
 @import "../components/header/header.scss";
+
+.index__react-logo {
+  @mixin bg content/filters--settings.svg;
+
+  @mixin bg content/logo--react.png;
+
+  // background: url('../img/sprite/content/logo--react.png') no-repeat 0 0;
+
+  background-size: contain;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  background-size: contain;
+  background-color: rebeccapurple;
+}

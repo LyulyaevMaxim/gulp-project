@@ -214,7 +214,7 @@ $width-column-table: 360px;
 
 .compare-table-body {
   @media (min-width: $tablet) {
-    max-width: calc(100% - $width-column-table);
+    max-width: calc( 100% - $width-column-table );
     margin-left: $width-column-table;
     border-left: 1px solid #e7e7e7;
   }

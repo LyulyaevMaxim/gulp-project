@@ -42,7 +42,7 @@ const
   rename = require('gulp-rename'),
   syntax_scss = require('postcss-scss'),
   precss = require("precss"),
-  postcss_css_reset = require('postcss-css-reset'),
+  // postcss_css_reset = require('postcss-css-reset'),
   autoprefixer = require('autoprefixer'),
   assets = require('postcss-assets'),
   mqpacker = require('css-mqpacker'),
@@ -52,7 +52,7 @@ const base_plugins = [
   precss,
   assets({ loadPaths: ['img/'] }),
   sprites({ spritePath: './public/img' }),
-  postcss_css_reset,
+  // postcss_css_reset,
   autoprefixer({ browsers: ['last 3 version'] }),
   mqpacker({ sort: true })
 ];
@@ -103,12 +103,14 @@ const
 
 gulp.task('js-optim', function () {
   return gulp.src('public/js/**/*.js')
+    .pipe(plumber())
     .pipe(uglify())
     .pipe(gulp.dest('public/js'));
 });
 
 gulp.task('сss-optim', function () {
   return gulp.src('public/**/*.css')
+    .pipe(plumber())
     .pipe(postcss(optimization_plugins))
     .pipe(gulp.dest('public'));
 });
