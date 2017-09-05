@@ -71,8 +71,7 @@ gulp.task('css', function () {
 
 /*---------------------Scripts--------------------------*/
 const
-  babel = require('gulp-babel'),
-  jsImport = require('gulp-js-import');
+  babel = require('gulp-babel');
 
 gulp.task('scripts', function () {
   return gulp.src('frontend/js/**/*.*', { since: gulp.lastRun('scripts') })
@@ -80,11 +79,10 @@ gulp.task('scripts', function () {
     .pipe(gulp.dest('public/js'))
 });
 
-gulp.task('js-import', function () {
+gulp.task('js-es', function () {
   return gulp.src('public/js/*.js')
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    // .pipe(jsImport())
     .pipe(babel({
       presets: ['env']
     }))
@@ -132,7 +130,7 @@ gulp.task('reload', function (done) {
 /*---------------------END: RELOAD BROWSERS--------------------------*/
 
 
-gulp.task('default', gulp.series(gulp.parallel(gulp.series('img', 'css'), gulp.series('scripts', 'js-import'), gulp.series('html', function () {
+gulp.task('default', gulp.series(gulp.parallel(gulp.series('img', 'css'), gulp.series('scripts', 'js-es'), gulp.series('html', function () {
   browserSync.init({
     server: {
       baseDir: "./public/"
@@ -140,7 +138,7 @@ gulp.task('default', gulp.series(gulp.parallel(gulp.series('img', 'css'), gulp.s
   })
   gulp.watch('frontend/img/**/*.*', gulp.series('img', 'reload'));
   gulp.watch(['frontend/css/*.scss'], gulp.series('css', 'reload'));
-  gulp.watch(['frontend/js/**/*.js'], gulp.series('scripts', 'js-import', 'reload'));
+  gulp.watch(['frontend/js/**/*.js'], gulp.series('scripts', 'js-es', 'reload'));
   gulp.watch(['frontend/html/*.pug'], gulp.series('html', 'reload'));
 }))
 ));
