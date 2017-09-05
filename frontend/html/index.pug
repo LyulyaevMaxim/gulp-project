@@ -1,0 +1,64 @@
+include _assets/bemto/bemto
+- set_bemto_settings({ modifier: "-" , class_delimiter :  ' | ' })
+
+include ../components/mixins
+include ../components/head/head
+
+doctype html
+html(lang="ru")
+
+block head
+	head
+		+head({
+			"title": "Главная",
+			"description": "Главная страница"
+		})
+			
+//- +b.BODY.page
+//- 	+e.wrap
+//- 		block header
+//-       //- некоторые теги автоматически модифицируются
+//-       +b.image(src="foo.png")
+//-       //- => <img alt="" class="image" src="foo.png"/> - по src поняли, что это изображение
+//-       +b.UL.list
+//-         //- по ul поняли, что на первом уровне вложенности будут li
+//-         +b.list-item  
+//-           //-  по href поняли, что это ссылка
+//-           +e.link(href="foo")
+//-             //- а это будет span'ом, потому что подразумевается inline-elem (раз вложен в ссылку или p)
+//-             +e.text foo
+//-         +b.list-item
+//-           +e.link(href="bar")
+//-             +e.text bar
+					
+//- 		block content
+//- 			div Контент страниц
+
+//- 		block footer
+//- 			footer 2017 г.
+				
+//- 		block vendors
+//- 			//- script( src="libs/jquery/dist/jquery.min.js")
+    
+//-     +b.foo.bar__ 
+//-       +e.baz
+//-     //- если на контейнере несколько классов, а внутренние элементы нужны только на основе одного из них, то добавляем в конец этого класса __
+//-     //- <div class="foo bar">
+//-     //-   <div class="bar__baz"></div>
+//-     //- </div>
+
+//-     //- МОДИФИКАТОРЫ
+//-     //- +b.block_foo  bar
+//-     //- => <div class="block block_foo">bar</div>
+
+//-     //-  если нужно несколько модификоров
+//-     //-  +b.block_foo._bar._baz
+//-     //-   +e.element_type_lol._mode_moddy Blah
+
+//-     //- => <div class="block block_foo block_bar block_baz">
+//-     //-       <div class="block__element block__element_type_lol block__element_mode_moddy">Blah</div>
+//-     //-     </div>
+
+
+//- 		block scripts
+//- 			script( src="js/index.js")

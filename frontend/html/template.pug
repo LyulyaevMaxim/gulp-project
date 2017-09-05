@@ -1,0 +1,64 @@
+include _assets/bemto/bemto
+- set_bemto_settings({ modifier: "--" })
+
+include ../components/head/head
+include ../components/header/header
+
+doctype html
+html(lang="ru")
+
+	block head
+		head
+			+head({
+				"title": "Workshop",
+				"author": "Space Academy",
+				"description": "Workshop"
+			})
+			
+		+b.BODY.page
+			+e.DIV.wrap
+				block header
+					//- +header({
+					//- 	"menu": [
+					//- 		{
+					//- 			"text": "Главная",
+					//- 			"href": "index.html"
+					//- 		},
+					//- 		{
+					//- 			"text": "О нас",
+					//- 			"href": "index.html"
+					//- 		},
+					//- 		{
+					//- 			"text": "Услуги",
+					//- 			"href": "index.html"
+					//- 		},
+					//- 		{
+					//- 			"text": "информация",
+					//- 			"href": "index.html"
+					//- 		},
+					//- 		{
+					//- 			"text": "Блог",
+					//- 			"href": "index.html"
+					//- 		},
+					//- 		{
+					//- 			"text": "Контакты",
+					//- 			"href": "index.html"
+					//- 		}
+					//- 	]
+					//- })
+					
+				block content
+					div Контент страницы
+
+				block footer
+					footer 2017 г.
+				
+			block vendors
+				// build:js js/vendor.js
+				script( src="libs/jquery/dist/jquery.min.js")
+				// endbuild
+
+			block scripts
+				// build:js js/main.js
+				script( src="js/main.js")
+				// endbuild

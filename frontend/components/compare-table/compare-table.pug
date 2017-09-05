@@ -1,0 +1,100 @@
+mixin compare-table(data)  
+  +b.compare-table
+    +b.compare-table-button
+      +e.prev
+      +e.next
+    +b.compare-table-aside
+      +b.compare-table-aside-filters
+        +e.title Категория товаров
+        form(action="").select
+          label.label
+          select.turnintodropdown_demo2
+            option Доставка
+            option Англия
+            option Северная Ирландия
+            option Шотландия
+            option Уэльс
+            option Австралия
+      +b.compare-table-aside-buttons
+        +e.difference(href="#") Различающиеся
+        +e.all-parameters(href="#") Все параметры
+      +b.compare-table-aside-parameters
+        each j in data.feature_index              
+          +e.parameter-name
+            p #{data.item_feature[j]}
+    +b.compare-table-body.owl-carousel.compare-products-slider
+      each i in data.items_index
+        +b.product-item
+          +b.product-item-title
+            +e.img
+              +e.IMG(src='img/content/' + data.item_img)
+            +e.P.title #{data.item_title[i]}
+            +e.P.description #{data.item_desc[i]}
+            +e.buy(href="#") Купить
+          +b.product-item-info
+            each j in data.feature_index              
+              +b.product-item-info-block(data-label=data.item_feature[j])
+                +e.P.value #{data.item_feature_value[j][i]}
+
+      //- +b.compare-table-body-line.--title
+      //-   each i in data.items_index      //-   
+      //- each i in data.feature_index        
+      //-   +b.compare-table-body-line
+      //-     +e.feature #{data.item_feature[i]}
+      //-     each j in data.items_index        
+      //-       +b.compare-table-body-line-row(data-label=data.item_feature[i])     
+      //-         //- +e.feature #{data.item_feature[i]}
+      //-         +e.P.text #{data.item_feature_value[i][j]}
+
+        //-   .table       
+
+        //-     .line
+        //-       .feature  Производитель
+        //-       .row(data-label="Производитель")
+        //-         p.text Apple Corp 
+        //-       .row(data-label="Производитель")
+        //-         p.text Huawei
+        //-       .row(data-label="Производитель")
+        //-         p.text хз
+        //-       .row(data-label="Производитель")
+        //-         p.text Значение
+        //-     .line
+        //-       .feature  Очень длинная характеристика, очень-очень
+        //-       .row(data-label="Очень длинная характеристика, очень-очень")  
+        //-         p.text Описание
+        //-       .row(data-label="Очень длинная характеристика, очень-очень")  
+        //-         p.text Описание длинной характеристики
+        //-       .row(data-label="Очень длинная характеристика, очень-очень")  
+        //-         p.text Описание для третьего продукта
+        //-       .row(data-label="Очень длинная характеристика, очень-очень")  
+        //-         p.text Значение
+        //-     .line
+        //-       .feature  Мощность двигателя
+        //-       .row(data-label="Мощность двигателя") 
+        //-         p.text Про мощность двигателя dfgdfg dfghfg fgdg dfgdfg dfghfg fgdg dfgdfg dfghfg fgdg dfgdfg dfghfg fgdg dfgdfg dfghfg fgdg dfgdfg dfghfg fgdg dfgdfg dfghfg fgdg dfgdfg dfghfg fgdg dfgdfg dfghfg fgdg dfgdfg dfghfg fgdg dfgdfg dfghfg fgdg dfgdfg dfghfg fgdg
+        //-       .row(data-label="Мощность двигателя")
+        //-         p.text Про мощность двигателя
+        //-       .row(data-label="Мощность двигателя")
+        //-         p.text Про мощность двигателя dfghfg fgdg dfgdfg dfghfg fgdg dfgdfg dfghfg fgdg
+        //-       .row(data-label="Мощность двигателя")
+        //-         p.text -
+        //-     .line
+        //-       .feature  Характеристика 99
+        //-       .row(data-label="Характеристика 99")
+        //-         p.text Значение 1 для 99
+        //-       .row(data-label="Характеристика 99")
+        //-         p.text Значение 2 для 99
+        //-       .row(data-label="Характеристика 99")
+        //-         p.text Значение 3 для 99
+        //-       .row(data-label="Характеристика 99")
+        //-         p.text Значение
+        //-     .line
+        //-       .feature  Характеристика 100
+        //-       .row(data-label="Характеристика 100")
+        //-         p.text Значение 1 для 100
+        //-       .row(data-label="Характеристика 100")
+        //-         p.text Значение 2 для 100
+        //-       .row(data-label="Характеристика 100")
+        //-         p.text Значение 3 для 100
+        //-       .row(data-label="Характеристика 100")
+        //-         p.text Значение

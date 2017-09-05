@@ -1,0 +1,25 @@
+@reset-global mobile;
+
+.mobile-hide {
+  display: none;
+}
+
+@media (min-width: $tablet) {
+  .tablet-on {
+    display: block;
+  }
+}
+
+@media (min-width: $desktop) {
+  .desktop-on {
+    display: block;
+  }
+}
+
+body {
+  // font-family: Roboto Slab,serif;
+  min-height: 100vh;  
+  display: flex;  
+  flex-direction: column;  
+  justify-content: space-between;
+}

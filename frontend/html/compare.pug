@@ -1,0 +1,40 @@
+include _assets/bemto/bemto
+- set_bemto_settings({ modifier: "--" , class_delimiter :  ' | ' })
+
+<link href="js/owl.carousel/owl.carousel.css" rel="stylesheet">
+<link href="js/owl.carousel/owl.theme.default.css" rel="stylesheet">
+include ../components/mixins
+include ../components/head/head
+include ../components/compare-table/compare-table
+
+
+
+
+
+doctype html
+html(lang="ru")
+	head
+		+head({"title": "Страница сравнения",
+				"description": "Сравнение выбранных товаров",
+				"style_page": "styles/compare.css"})
+
+	+b.BODY#compare
+
+		.compare-container
+			
+			+b.compare-header 
+				+e.H1.title Таблица сравнения
+			+compare-table({
+				"items_index": [0, 1, 2, 3, 4, 5],
+				"item_title": ["OnePlus 5", "iPhone 6", "Galaxy S7", "Honor 9", "HTC 10", "Sony XPERIA"],
+				"item_img": "item--1.jpg",
+				"item_desc": ["Cамый лучший телефон", "Якобы самый лучший телефон Якобы самый лучший телефон Якобы самый лучший телефон Якобы самый лучший телефон Якобы самый лучший телефон", "Неплохой телефон", "Красивый телефон", "Говорят неплохой", "Так себе"],
+				"feature_index": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+				"item_feature": ["Производитель", "Год релиза", "Цвет (спереди/cзади/сбоку)", "Поддержка сетей", "Количество SIM-карт", "Диагональ экрана", "Разрешение экрана", "Операционная система",  "Количество мегапикселей основной камеры ", "Цена"],
+				"item_feature_value": [["OnePlus OnePlus OnePlus OnePlus OnePlus OnePlus OnePlus", "Apple", "Samsung", "Huavei", "HTC","Sony"], ["2017", "2014", "2016", "2017", "2016","2016"], ["Серый", "Apple", "Samsung", "Huavei", "HTC","Sony"],["OnePlus", "Apple Apple Apple  Apple  Apple  Apple  Apple Apple  Apple  Apple  Apple ", "Samsung", "Huavei", "HTC","Sony"],["OnePlus", "Apple", "Samsung", "Huavei", "HTC","Sony"],["OnePlus", "Apple", "Samsung", "Huavei", "HTC","Sony"],["OnePlus", "Apple", "Samsung", "Huavei", "HTC","Sony"], ["OnePlus", "Apple", "Samsung", "Huavei", "HTC","Sony"],["OnePlus", "Apple", "Samsung", "Huavei", "HTC","Sony"],["OnePlus", "Apple", "Samsung", "Huavei", "HTC","Sony"]]
+			})  
+		
+
+script(src="js/jquery/jquery.min.js")
+script(src="js/owl.carousel/owl.carousel.js")
+script(src="js/compare.js")
