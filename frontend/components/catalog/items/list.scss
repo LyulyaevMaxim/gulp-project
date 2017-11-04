@@ -1,0 +1,189 @@
+catalog-items-section.list {
+  block-for-items item {
+    width: 100%;
+    flex-wrap: nowrap;
+    padding-left: 11px;
+    padding-right: 20px;
+    padding-top: 2px;
+    padding-bottom: 23px;
+    border: 1px solid #e1e1e1;
+    border-top: none;
+
+    @media (min-width: $desktop) {
+      padding-bottom: 28px;
+    }
+
+    @media (min-width: $big-desktop) {
+      padding-top: 19px;
+      padding-left: 19px;
+    }
+
+    @media (max-width: 1439px) and (min-width: 1024px) {
+      &:nth-child(3n + 2):not(:last-child) {
+        border-left: 1px solid #e1e1e1;
+        border-right: 1px solid #e1e1e1;
+      }
+    }
+
+    @media (min-width: $big-desktop) {
+      &:nth-child(4n + 2),
+      &:nth-child(4n + 3),
+      &:nth-child(4n + 3):not(:last-child) {
+        border-left: 1px solid #e1e1e1;
+        border-right: 1px solid #e1e1e1;
+      }
+    }
+
+    .description {
+      padding-left: 20px;
+      padding-right: 0;
+      margin-top: 19px;
+
+      @media (min-width: $desktop) {
+        display: grid;
+        grid-template: "title price" "product-characteristics-list add-to-cart" "product-characteristics-list rating-block" "product-characteristics-list add-to-compare" "product-characteristics-list product-in-stock";
+        grid-template-columns: 55% 38.6%;
+        align-items: flex-start;
+        margin-top: 18px;
+      }
+
+      @media (min-width: $big-desktop) {
+        margin-top: 10px;
+        grid-template: "title price rating-block" "title price add-to-compare" "product-characteristics-list add-to-cart product-in-stock ";
+        grid-template-columns: 62% 19.5% 14.5%;
+        margin-left: auto;
+        width: 79%;
+        margin-right: auto;
+      }
+    }
+
+    .title {
+      order: 0;
+      margin-bottom: -3px;
+
+      @media (min-width: $desktop) {
+        grid-column: 1;
+      }
+    }
+
+    .add-to-compare {
+      order: 4;
+      margin-top: 19px;
+      margin-left: -3px;
+
+      @media (min-width: $desktop) {
+        grid-column: 2;
+        margin-left: 0;
+        margin-top: -9px;
+      }
+
+      @media (min-width: $big-desktop) {
+        grid-column: 3;
+        margin-top: 19px;
+      }
+
+      & + .price {
+        @media (min-width: $tablet) {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .price {
+      order: 1;
+      width: 100%;
+
+      @media (min-width: $desktop) {
+        grid-column: 2;
+        padding-top: 19px;
+      }
+
+      @media (min-width: $big-desktop) {
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 12px;
+      }
+
+      & + .add-to-cart {
+        margin-top: 20px;
+
+        @media (min-width: $big-desktop) {
+          margin-top: 2px;
+        }
+      }
+    }
+
+    .add-to-cart {
+      order: 2;
+
+      @media (min-width: $desktop) {
+        grid-column: 2;
+        width: 100px;
+        margin-bottom: -5px;
+      }
+
+      @media (min-width: $big-desktop) {
+        margin-left: 0;
+        margin-right: 0;
+        justify-self: center;
+      }
+    }
+
+    .product-in-stock {
+      order: 5;
+      display: flex;
+      margin-top: 16px;
+      margin-left: -1px;
+
+      @media (min-width: $desktop) {
+        grid-column: 2;
+        margin-top: 0;
+      }
+
+      @media (min-width: $big-desktop) {
+        grid-column: 3;
+        margin-top: 15px;
+      }
+    }
+
+    rating-block {
+      order: 3;
+      display: flex;
+      width: 100%;
+      margin-top: 19px;
+      margin-left: -3px;
+
+      @media (min-width: $desktop) {
+        grid-column: 2;
+        margin-top: -6px;
+        margin-left: 0;
+      }
+
+      @media (min-width: $big-desktop) {
+        grid-column: 3;
+        margin-top: 9px;
+      }
+    }
+
+    product-characteristics-list {
+      @media (min-width: $desktop) {
+        display: block;
+        width: 100%;
+        grid-column: 1;
+        padding-top: 0;
+        padding-left: 0;
+        padding-right: 25px;
+        margin-top: -10px;
+
+        feature + feature {
+          margin-top: 6px;
+        }
+      }
+
+      @media (min-width: $big-desktop) {
+        margin-top: -40px;
+      }
+    }
+  }
+}

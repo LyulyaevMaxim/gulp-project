@@ -1,1 +1,192 @@
-"use strict";function compareTableParametersMove(){$(".compare-table").find(".compare-table-aside-parameters").css("top",$(".compare-table-body").find(".product-item-title").css("height"))}function compareTableFixHeight(){$(".compare-table-body .product-item");var e,t=0,a=0,n=[];$(".compare-table-aside-parameters").find(".compare-table-aside-parameters__parameter-name").each(function(){a++,n.push(parseFloat($(this).css("height")))}),$(".compare-table-body").find(".product-item").each(function(){var a=0;e=$(this).find(".product-item-title").css("height"),parseFloat(e)>t&&(t=parseFloat(e)),$(this).find(".product-item-info-block").each(function(){e=$(this).css("height"),parseFloat(e)>n[a]&&(n[a]=parseFloat(e)),a++})}),$(".compare-table-body").find(".product-item").each(function(){var e=0;$(this).find(".product-item-title").css("height",t),$(this).find(".product-item-info-block").each(function(){$(this).css("height",n[e]),e++})});var o=0;$(".compare-table-aside-parameters").find(".compare-table-aside-parameters__parameter-name").each(function(){$(this).css("height",n[o]),o++})}function select_button(){function e(e,t){return new RegExp("\\b"+t+"\\b").test(e.className)}function t(t,a,n){var o=t.className;t.className=e(t,a)?o.replace(a,n):o.replace(n,a)}function a(t,a){e(t,a)||(t.className+=""==t.className?a:" "+a)}if(document.getElementById||document.createTextNode){for(var n=0,o=new Array,i=document.getElementsByTagName("select"),r=0;r<i.length;r++)if(e(i[r],"turnintodropdown_demo2")){var s=document.createElement("input");s.name=i[r].name,s.type="hidden",s.id=i[r].id,s.value=i[r].options[0].value,i[r].parentNode.insertBefore(s,i[r]);var c=document.createElement("a");a(c,"select--title"),c.href="#",c.onclick=function(){return t(this.parentNode.getElementsByTagName("ul")[0],"dropdownhidden_demo2","dropdownvisible_demo2"),!1},c.appendChild(document.createTextNode(i[r].options[0].text)),i[r].parentNode.insertBefore(c,i[r]);for(var d=document.createElement("ul"),l=0;l<i[r].getElementsByTagName("option").length;l++){var m=document.createElement("li"),p=document.createElement("a");m.v=i[r].getElementsByTagName("option")[l].value,m.elm=s,m.istrigger=c,p.href="#",p.appendChild(document.createTextNode(i[r].getElementsByTagName("option")[l].text)),m.onclick=function(){return this.elm.value=this.v,t(this.istrigger,"select--title active","select--title"),t(this.parentNode,"dropdownvisible_demo2","dropdownhidden_demo2"),this.istrigger.firstChild.nodeValue=this.firstChild.firstChild.nodeValue,!1},m.appendChild(p),d.appendChild(m)}a(d,"dropdownhidden_demo2");var h=document.createElement("div");h.appendChild(d),a(h,"select--body"),i[r].parentNode.insertBefore(h,i[r]),o[n]=i[r],n++}for(var u=document.getElementsByTagName("ul"),r=0;r<u.length;r++)if(e(u[r],"turnintoselect_demo2")){var f=document.createElement("form"),g=document.createElement("select");for(l=0;l<u[r].getElementsByTagName("a").length;l++){var v=document.createElement("option");v.value=u[r].getElementsByTagName("a")[l].href,v.appendChild(document.createTextNode(u[r].getElementsByTagName("a")[l].innerHTML)),g.appendChild(v)}g.onchange=function(){window.location=this.options[this.selectedIndex].value},f.appendChild(g),u[r].parentNode.insertBefore(f,u[r]),o[n]=u[r],n++}for(r=0;r<n;r++)o[r].parentNode.removeChild(o[r]);$(".select--title").click(function(){$(this).hasClass("active")?$(this).removeClass("active"):$(this).addClass("active")})}}$(document).ready(function(e){compareTableFixHeight(),compareTableParametersMove(),select_button()});var owl=$(".compare-products-slider");owl.owlCarousel({nav:!0,navText:!0,dots:!0,items:3,responsive:{0:{items:1},1024:{items:2},1440:{items:3}}});
+"use strict";
+
+function compareTableParametersMove() {
+  $(".compare-table").find(".compare-table-aside-parameters").css("top", $(".compare-table-body").find(".product-item-title").css("height"));
+}
+
+function compareTableFixHeight() {
+  var product_item = $(".compare-table-body .product-item"),
+      temp_height,
+      max_height_title = 0,
+      amount_elements = 0,
+      arr = [];
+
+  //подсчитаем количество блоков с характеристиками
+  $(".compare-table-aside-parameters").find(".compare-table-aside-parameters__parameter-name").each(function () {
+    amount_elements++;
+    arr.push(parseFloat($(this).css("height")));
+  });
+
+  //узнаем высоту наибольшего заголовка среди всех блоков с товарами
+  $(".compare-table-body").find(".product-item").each(function () {
+    var i = 0;
+
+    temp_height = $(this).find(".product-item-title").css("height");
+    if (parseFloat(temp_height) > max_height_title) {
+      max_height_title = parseFloat(temp_height);
+    }
+
+    $(this).find(".product-item-info-block").each(function () {
+      temp_height = $(this).css("height");
+      if (parseFloat(temp_height) > arr[i]) {
+        arr[i] = parseFloat(temp_height);
+      }
+      i++;
+    });
+  });
+
+  //итоговый обход, присваиваем значения слайдеру
+  $(".compare-table-body").find(".product-item").each(function () {
+    var i = 0;
+    $(this).find(".product-item-title").css("height", max_height_title);
+    $(this).find(".product-item-info-block").each(function () {
+      $(this).css("height", arr[i]);
+      i++;
+    });
+  });
+
+  var j = 0;
+  $(".compare-table-aside-parameters").find(".compare-table-aside-parameters__parameter-name").each(function () {
+    $(this).css("height", arr[j]);
+    j++;
+  });
+}
+
+function select_button() {
+  if (!document.getElementById && !document.createTextNode) {
+    return;
+  }
+
+  var ts_selectclass = 'turnintodropdown_demo2'; // class to identify selects
+  var ts_listclass = 'turnintoselect_demo2'; // class to identify ULs
+  var ts_boxclass = 'select--body'; // parent element
+  var ts_triggeron = 'select--title active'; // class for the active trigger link
+  var ts_triggeroff = 'select--title'; // class for the inactive trigger link
+  var ts_dropdownclosed = 'dropdownhidden_demo2'; // closed dropdown
+  var ts_dropdownopen = 'dropdownvisible_demo2'; // open dropdown
+
+  var count = 0;
+  var toreplace = new Array();
+  var sels = document.getElementsByTagName('select');
+
+  for (var i = 0; i < sels.length; i++) {
+    if (ts_check(sels[i], ts_selectclass)) {
+      var hiddenfield = document.createElement('input');
+      hiddenfield.name = sels[i].name;
+      hiddenfield.type = 'hidden';
+      hiddenfield.id = sels[i].id;
+      hiddenfield.value = sels[i].options[0].value;
+      sels[i].parentNode.insertBefore(hiddenfield, sels[i]);
+      var trigger = document.createElement('a');
+      ts_addclass(trigger, ts_triggeroff);
+      trigger.href = '#';
+      trigger.onclick = function () {
+        ts_swapclass(this.parentNode.getElementsByTagName('ul')[0], ts_dropdownclosed, ts_dropdownopen);
+        return false;
+      };
+      trigger.appendChild(document.createTextNode(sels[i].options[0].text));
+      sels[i].parentNode.insertBefore(trigger, sels[i]);
+      var replaceUL = document.createElement('ul');
+      for (var j = 0; j < sels[i].getElementsByTagName('option').length; j++) {
+        var newli = document.createElement('li');
+        var newa = document.createElement('a');
+        newli.v = sels[i].getElementsByTagName('option')[j].value;
+        newli.elm = hiddenfield;
+        newli.istrigger = trigger;
+        newa.href = '#';
+        newa.appendChild(document.createTextNode(sels[i].getElementsByTagName('option')[j].text));
+        newli.onclick = function () {
+          this.elm.value = this.v;
+          // скрываем список с элементами после выбора нужного
+          ts_swapclass(this.istrigger, ts_triggeron, ts_triggeroff);
+          ts_swapclass(this.parentNode, ts_dropdownopen, ts_dropdownclosed);
+          // устанавливаем в заголовок значение выбранного элемента
+          this.istrigger.firstChild.nodeValue = this.firstChild.firstChild.nodeValue;
+          return false;
+        };
+        newli.appendChild(newa);
+        replaceUL.appendChild(newli);
+      }
+      ts_addclass(replaceUL, ts_dropdownclosed);
+      var div = document.createElement('div');
+      div.appendChild(replaceUL);
+      ts_addclass(div, ts_boxclass);
+      sels[i].parentNode.insertBefore(div, sels[i]);
+      toreplace[count] = sels[i];
+      count++;
+    }
+  }
+
+  /*
+    Turn all ULs with the class defined above into dropdown navigations
+  */
+  var uls = document.getElementsByTagName('ul');
+  for (var i = 0; i < uls.length; i++) {
+    if (ts_check(uls[i], ts_listclass)) {
+      var newform = document.createElement('form');
+      var newselect = document.createElement('select');
+      for (j = 0; j < uls[i].getElementsByTagName('a').length; j++) {
+        var newopt = document.createElement('option');
+        newopt.value = uls[i].getElementsByTagName('a')[j].href;
+        newopt.appendChild(document.createTextNode(uls[i].getElementsByTagName('a')[j].innerHTML));
+        newselect.appendChild(newopt);
+      }
+      newselect.onchange = function () {
+        window.location = this.options[this.selectedIndex].value;
+      };
+      newform.appendChild(newselect);
+      uls[i].parentNode.insertBefore(newform, uls[i]);
+      toreplace[count] = uls[i];
+      count++;
+    }
+  }
+  for (i = 0; i < count; i++) {
+    toreplace[i].parentNode.removeChild(toreplace[i]);
+  }
+  function ts_check(o, c) {
+    return new RegExp('\\b' + c + '\\b').test(o.className);
+  }
+  function ts_swapclass(o, c1, c2) {
+    var cn = o.className;
+    o.className = !ts_check(o, c1) ? cn.replace(c2, c1) : cn.replace(c1, c2);
+  }
+  function ts_addclass(o, c) {
+    if (!ts_check(o, c)) {
+      o.className += o.className == '' ? c : ' ' + c;
+    }
+  }
+
+  $('.select--title').click(function () {
+    if (!$(this).hasClass('active')) {
+      $(this).addClass('active');
+      // $(this).next().addClass('active');
+    } else {
+      $(this).removeClass('active');
+    }
+  });
+}
+
+$(document).ready(function ($) {
+  compareTableFixHeight();
+  compareTableParametersMove();
+  select_button();
+});
+
+var owl = $('.compare-products-slider');
+owl.owlCarousel({
+  nav: true,
+  navText: true,
+  dots: true,
+  items: 3,
+  responsive: {
+    0: {
+      items: 1
+    },
+    1024: {
+      items: 2
+    },
+    1440: {
+      items: 3
+    }
+  }
+});

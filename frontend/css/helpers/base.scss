@@ -1,0 +1,57 @@
+body {
+  font-family: $PTSans;
+  font-weight: $PTSansRegular;
+  min-height: 100vh;  
+  display: flex;  
+  flex-direction: column;  
+  max-width: 100vw;
+  overflow-x: hidden;
+  justify-content: space-between;
+  background: var(--color-fon);
+}
+
+main {
+  flex: 1 0 auto;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.block-html {
+  overflow-y: hidden !important;
+}
+
+@media (min-width: 1024px) {
+  html,
+  .block-html {
+    overflow: initial !important;
+  }
+}
+
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+  .mobile-hide {
+    display: none !important;
+  }
+}
+
+@media (min-width: $tablet) and (max-width: 1023px) {
+  .tablet-hide {
+    display: none !important;
+  }
+}
+
+@media (min-width: $desktop) and (max-width: 1439px) {
+  .desktop-hide {
+    display: none !important;
+  }
+}
+
+@media (min-width: $big-desktop) {
+  .big-desktop-hide {
+    display: none !important;
+  }
+}

@@ -1,1 +1,7 @@
-"use strict";[1,2,3].map(function(t){return t+1});
+"use strict";
+
+// ES2015 arrow function
+
+[1, 2, 3].map(function (n) {
+  return n + 1;
+});

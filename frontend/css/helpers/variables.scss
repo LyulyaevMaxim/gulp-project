@@ -1,0 +1,48 @@
+/*----------- РАЗРЕШЕНИЯ ЭКРАНА -----------*/
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1024px;
+$big-desktop: 1440px;
+
+/*----------- PADDINGS/MARGINS -----------*/
+$margin-320: 22px;
+$margin-768: 34px;
+$margin-1024: 42px;
+$margin-1440: 56px;
+
+/*----------- ШРИФТЫ -----------*/
+$PTSans: 'PT Sans', sans-serif;
+$PTSansRegular: 400;
+$PTSansBold: 700;
+
+/*----------- ЦВЕТА -----------*/
+$black: #000000;
+$gray: #b7b7b7;
+$light-black: #4a4a4a;
+$gold: #f9a61a;
+$white: #ffffff;
+$green: #8ccaaa;
+$pink: #ef6577;
+$blue: #6fb0dc;
+$purple: #d073b7;
+
+/*----------- CSS Variables -----------*/
+:root {
+  --color-fon: red;
+  --color-hover: $gold;
+  --margin: $margin-320;
+
+  @media (min-width: $tablet) {
+    --margin: $margin-768;
+    --color-fon: $green;
+  }
+
+  @media (min-width: $desktop) {
+    --margin: $margin-1024;
+    --color-fon: $grey;
+  }
+
+  @media (min-width: $big-desktop) {
+    --margin: $margin-1440;
+  }
+}
