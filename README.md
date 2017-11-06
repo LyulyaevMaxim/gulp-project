@@ -26,8 +26,10 @@ Fast and effective environment for frontend development
 * в случае ошибок компиляции выводятся поясняющие уведомления
 
 ## Всё самое необходимое
-* содержит готовые шаблоны всего самого необходимого: многоуровневое меню, checkbox, radio, ratings, select, accordion, popup, sliders, ...
-* демонстрирует как можно использовать scss + css variables, grid, pug mixins, preload и async
+* содержит готовые шаблоны всего самого необходимого:   
+многоуровневое меню, checkbox, radio, ratings, select, accordion, popup, sliders, ...
+* демонстрирует как можно использовать:   
+scss + css variables, grid, pug mixins, preload, async
 
 
 
