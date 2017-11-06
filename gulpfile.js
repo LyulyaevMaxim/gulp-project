@@ -10,18 +10,25 @@ const
   notify = require('gulp-notify');
 
 
-/*---------------------PUG -> HTML--------------------------*/
+/*--------------------- HTML--------------------------*/
 const
   pug = require('gulp-pug');
 
-gulp.task('html', function () {
-  return gulp.src('frontend/html/*.pug', { since: gulp.lastRun('html') })
-    .pipe(plumber({errorHandler: notify.onError("HTML: <%= error.message %>")}))
+gulp.task('pug-to-html', function () {
+  return gulp.src('frontend/html/*.pug', { since: gulp.lastRun('pug-to-html') })
+    .pipe(plumber({ errorHandler: notify.onError("Pug: <%= error.message %>") }))
     .pipe(newer('public'))
     .pipe(pug({ pretty: '\t' }))
     .pipe(gulp.dest('public'))
 });
-/*---------------------END: PUG -> HTML--------------------------*/
+
+gulp.task('html', function () {
+  return gulp.src('frontend/html/*.html', { since: gulp.lastRun('html') })
+    .pipe(plumber({ errorHandler: notify.onError("HTML: <%= error.message %>") }))
+    .pipe(newer('public'))
+    .pipe(gulp.dest('public'))
+});
+/*---------------------END: HTML--------------------------*/
 
 
 /*---------------------IMG--------------------------*/
@@ -29,9 +36,9 @@ const imagemin = require('gulp-imagemin');
 
 gulp.task('img', function () {
   return gulp.src('frontend/img/**/*.*')
-    .pipe(plumber({errorHandler: notify.onError("IMAGES: <%= error.message %>")}))
+    .pipe(plumber({ errorHandler: notify.onError("IMAGES: <%= error.message %>") }))
     .pipe(newer('public/img/'))
-    .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+    .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
     .pipe(gulp.dest('public/img/'))
 });
 /*---------------------END: IMG--------------------------*/
@@ -51,7 +58,7 @@ const
   sprites = require('postcss-sprites');
 
 const base_plugins = [
-  precss({preserve: true}),  
+  precss({ preserve: true }),
   assets({ loadPaths: ['img/'] }),
   sprites({ spritePath: './public/img' }),
   // postcss_css_reset,
@@ -61,7 +68,7 @@ const base_plugins = [
 
 gulp.task('css', function () {
   return gulp.src('frontend/css/*.scss', { since: gulp.lastRun('css') })
-    .pipe(plumber({errorHandler: notify.onError("CSS: <%= error.message %>")}))
+    .pipe(plumber({ errorHandler: notify.onError("CSS: <%= error.message %>") }))
     .pipe(sourcemaps.init())
     .pipe(postcss(base_plugins, { parser: syntax_scss }))
     .pipe(rename({ extname: '.css' }))
@@ -73,7 +80,7 @@ gulp.task('css', function () {
 /*---------------------Fonts--------------------------*/
 gulp.task('fonts', function () {
   return gulp.src('frontend/css/fonts/**/*.*')
-    .pipe(plumber({errorHandler: notify.onError("FONTS: <%= error.message %>")}))
+    .pipe(plumber({ errorHandler: notify.onError("FONTS: <%= error.message %>") }))
     .pipe(newer('public/styles/fonts/'))
     .pipe(gulp.dest('public/styles/fonts/'))
 });
@@ -84,29 +91,29 @@ const babel = require('gulp-babel');
 
 gulp.task('scripts', function () {
   return gulp.src('frontend/js/**/*.*')
-    .pipe(plumber({errorHandler: notify.onError("JS: <%= error.message %>")}))
+    .pipe(plumber({ errorHandler: notify.onError("JS: <%= error.message %>") }))
     .pipe(newer('public/js'))
     .pipe(gulp.dest('public/js'))
 });
 
 gulp.task('scripts-es', function () {
   return gulp.src('public/js/*.js')
-    .pipe(plumber({errorHandler: notify.onError("JS: <%= error.message %>")}))
-    .pipe(babel({presets: ['env']}))
+    .pipe(plumber({ errorHandler: notify.onError("JS: <%= error.message %>") }))
+    .pipe(babel({ presets: ['env'] }))
     .pipe(gulp.dest('public/js'))
 });
 
 gulp.task('scripts-components', function () {
   return gulp.src('frontend/components/**/*.js', { since: gulp.lastRun('scripts-components') })
-    .pipe(plumber({errorHandler: notify.onError("JS: <%= error.message %>")}))
+    .pipe(plumber({ errorHandler: notify.onError("JS: <%= error.message %>") }))
     .pipe(newer('public/js/components'))
     .pipe(gulp.dest('public/js/components'))
 });
 
 gulp.task('components-es', function () {
   return gulp.src('public/js/components/**/*.js')
-    .pipe(plumber({errorHandler: notify.onError("JS: <%= error.message %>")}))
-    .pipe(babel({presets: ['env']}))    
+    .pipe(plumber({ errorHandler: notify.onError("JS: <%= error.message %>") }))
+    .pipe(babel({ presets: ['env'] }))
     .pipe(gulp.dest('public/js/components'))
 });
 /*---------------------END: Scripts--------------------------*/
@@ -121,14 +128,14 @@ const
 
 gulp.task('js-optim', function () {
   return gulp.src('public/js/**/*.js')
-    .pipe(plumber({errorHandler: notify.onError("JS: <%= error.message %>")}))
+    .pipe(plumber({ errorHandler: notify.onError("JS: <%= error.message %>") }))
     .pipe(uglify())
     .pipe(gulp.dest('public/js'));
 });
 
 gulp.task('сss-optim', function () {
   return gulp.src('public/**/*.css')
-    .pipe(plumber({errorHandler: notify.onError("CSS: <%= error.message %>")}))
+    .pipe(plumber({ errorHandler: notify.onError("CSS: <%= error.message %>") }))
     .pipe(postcss(optimization_plugins))
     .pipe(gulp.dest('public'));
 });
@@ -146,7 +153,7 @@ gulp.task('reload', function (done) {
 /*---------------------END: RELOAD BROWSERS--------------------------*/
 
 
-gulp.task('default', gulp.series(gulp.parallel(gulp.series('img', 'css'), gulp.series('scripts', 'scripts-components', 'scripts-es', 'components-es'), gulp.series('html', function () {
+gulp.task('default', gulp.series(gulp.parallel(gulp.series('img', 'css'), gulp.series('scripts', 'scripts-components', 'scripts-es', 'components-es'), gulp.series('pug-to-html', 'html', function () {
   browserSync.init({
     server: {
       baseDir: "./public/"
@@ -158,6 +165,7 @@ gulp.task('default', gulp.series(gulp.parallel(gulp.series('img', 'css'), gulp.s
   gulp.watch([
     'frontend/js/**/*.js', 'frontend/components/**/*.js'
   ], gulp.series('scripts', 'scripts-components', 'scripts-es', 'components-es', 'reload'));
-  gulp.watch(['frontend/html/*.pug'], gulp.series('html', 'reload'));
+  gulp.watch(['frontend/html/*.pug'], gulp.series('pug-to-html', 'reload'));
+  gulp.watch(['frontend/html/*.html'], gulp.series('html', 'reload'));
 }))
 ));
