@@ -25,6 +25,12 @@ Fast and effective environment for frontend development
 * автоформатирование исходного SCSS и JS кода (Prettier)
 * в случае ошибок компиляции выводятся поясняющие уведомления
 
+## Всё самое необходимое
+* содержит готовые шаблоны всего самого необходимого: многоуровневое меню, checkbox, radio, ratings, select, accordion, popup, sliders, ...
+* демонстрирует как можно использовать scss + css variables, grid, pug mixins, preload и async
+
+
+
 ## Рекомендуемый порядок действий
 * установить менеджер пакетов yarn (https://yarnpkg.com/en/) - современный аналог npm, разрабатываемый Google и Facebook
 * открыть терминал в папке проекта, выполнить    
