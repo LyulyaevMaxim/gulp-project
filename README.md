@@ -24,8 +24,8 @@ Fast and effective environment for frontend development
 
 ## Рекомендуемый порядок действий
 * установить менеджер пакетов yarn (https://yarnpkg.com/en/) - современный аналог npm, разрабатываемый Google и Facebook
-* открыть терминал в папке проекта, выполнить 
-  yarn global add gulpjs/gulp-cli
+* открыть терминал в папке проекта, выполнить    
+  yarn global add gulpjs/gulp-cli   
   yarn install
 * чтобы начать работу - ввести gulp
 * для оптимизиации папки public - gulp build
