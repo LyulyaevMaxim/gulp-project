@@ -126,7 +126,7 @@ block-for-items {
       width: 265.8px;
     }
 
-    &:nth-child(2n+1) {
+    &:nth-child(2n + 1) {
       border-right: 1px solid #e1e1e1;
 
       @media (min-width: $tablet) {
@@ -135,19 +135,19 @@ block-for-items {
     }
 
     @media (max-width: 767px) {
-      &:nth-child(n+5) {
+      &:nth-child(n + 5) {
         display: none;
       }
     }
 
     @media (min-width: $tablet) and (max-width: 1023px) {
-      &:nth-child(n+4) {
+      &:nth-child(n + 4) {
         display: none;
       }
     }
 
     @media (min-width: $desktop) and (max-width: 1439px) {
-      &:nth-child(n+5) {
+      &:nth-child(n + 5) {
         display: none;
       }
     }

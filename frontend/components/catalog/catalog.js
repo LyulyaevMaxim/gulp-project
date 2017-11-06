@@ -1,4 +1,4 @@
-(function () {
+(function() {
   inputRangeShowValues();
   toggleViewMode();
   toggleSortMode();
@@ -10,7 +10,7 @@
       listMode = blockForViewToggles.find("> .list-mode"),
       tableMode = blockForViewToggles.find("> .table-mode");
 
-    listMode.on("click", function () {
+    listMode.on("click", function() {
       if (!Catalog.hasClass("list")) {
         tableMode.removeClass("active");
         $(this).addClass("active");
@@ -18,7 +18,7 @@
       }
     });
 
-    tableMode.on("click", function () {
+    tableMode.on("click", function() {
       if (!Catalog.hasClass("table")) {
         listMode.removeClass("active");
         $(this).addClass("active");
@@ -33,14 +33,14 @@
       priceSort = blockForSortToggles.find("> .price"),
       manufacturerSort = blockForSortToggles.find("> .manufacturer");
 
-    manufacturerSort.on("click", function () {
+    manufacturerSort.on("click", function() {
       if (!$(this).hasClass("active")) {
         priceSort.removeClass("active");
         $(this).addClass("active");
       }
     });
 
-    priceSort.on("click", function () {
+    priceSort.on("click", function() {
       if (!$(this).hasClass("active")) {
         manufacturerSort.removeClass("active");
         $(this).addClass("active");
@@ -60,13 +60,13 @@
     let filters = $("block-for-filters"),
       button = filters.find("> button");
 
-    button.on("click", function () {
+    button.on("click", function() {
       if (!filters.hasClass("active")) {
         filters.addClass("active");
-        $("html").addClass('block-html');
+        $("html").addClass("block-html");
       } else {
         filters.removeClass("active");
-        $("html").removeClass('block-html');
+        $("html").removeClass("block-html");
       }
     });
 
@@ -78,33 +78,28 @@
   function inputRangeShowValues() {
     let filters = $("block-for-filters");
 
-    filters
-      .find("accordion .range-min-max")
-      .each(function () {
-        let input = $(this),
-          buttonMinValue = input.find("~ .range__min-value > p"),
-          buttonMaxValue = input.find("~ .range__max-value > p"),
-          min = parseFloat(input.attr("min")),
-          max = parseFloat(input.attr("max")),
-          initialMinValue = 0,
-          initialMaxValue = 0.7 * max;
+    filters.find("accordion .range-min-max").each(function() {
+      let input = $(this),
+        buttonMinValue = input.find("~ .range__min-value > p"),
+        buttonMaxValue = input.find("~ .range__max-value > p"),
+        min = parseFloat(input.attr("min")),
+        max = parseFloat(input.attr("max")),
+        initialMinValue = 0,
+        initialMaxValue = 0.7 * max;
 
-        //инициализация значений кнопок
-        buttonMinValue.text(initialMinValue);
-        buttonMaxValue.text(initialMaxValue);
-        $(".range-min-max").slider({
-          range: true,
-          min: min,
-          max: max,
-          values: [
-            initialMinValue, initialMaxValue
-          ],
-          slide: function (event, ui) {
-            buttonMinValue.text(ui.values[0]);
-            buttonMaxValue.text(ui.values[1]);
-          }
-        });
+      //инициализация значений кнопок
+      buttonMinValue.text(initialMinValue);
+      buttonMaxValue.text(initialMaxValue);
+      $(".range-min-max").slider({
+        range: true,
+        min: min,
+        max: max,
+        values: [initialMinValue, initialMaxValue],
+        slide: function(event, ui) {
+          buttonMinValue.text(ui.values[0]);
+          buttonMaxValue.text(ui.values[1]);
+        }
       });
-
+    });
   }
 })();

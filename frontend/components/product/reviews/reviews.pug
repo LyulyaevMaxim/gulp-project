@@ -8,17 +8,17 @@ mixin product-reviews(data)
         p на основании #{data.total_votes} отзывов
         span 95% покупателей рекомендуют эти товары
       ratings-distribution(all-votes=data.total_votes)
-          h3 Распределение рейтингов:
-          each index in [5, 4, 3, 2, 1]
-            rating-block(receive-votes=data.distribution[index])
-              each i in [5,4,3,2,1]
-                if (i == index)
-                  input(type="radio" name="rating-distribution" + index id="star" + index + i value=i checked)
-                else
-                  input(type="radio" name="rating-distribution" + index id="star" + index + i value=i)
-                label(for="star" + index + i)
-              rating-line
-                progress-bar                  
+        h3 Распределение рейтингов:
+        each index in [5, 4, 3, 2, 1]
+          rating-block(receive-votes=data.distribution[index])
+            each i in [5,4,3,2,1]
+              if (i == index)
+                input(type="radio" name="rating-distribution" + index id="star" + index + i value=i checked)
+              else
+                input(type="radio" name="rating-distribution" + index id="star" + index + i value=i)
+              label(for="star" + index + i)
+            rating-line
+              progress-bar                  
       each index in data.product_index
         product-review
           author #{data.author[index]}

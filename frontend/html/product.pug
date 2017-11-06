@@ -19,7 +19,7 @@ include ../components/product/reviews/reviews
 //- слайдеры
 include ../components/sliders/full-slider/full-slider
 include ../components/sliders/product-slider/product-slider
- 
+
 doctype html
 html(lang="ru")
   head
@@ -34,15 +34,15 @@ html(lang="ru")
     "title": ["Главная", "Каталог", "Диагностика организма", 
     "Тонометры"]
   })
-  
+
   h1 Тонометры
   +product-header() 
-  
+
   product-grid
     +product-description()
     +product-characteristics()
     +product-files()
-  
+
     +product-reviews({
       "product_index": [0, 1],
       "author": ["Константин", "Валерий"],
@@ -52,7 +52,7 @@ html(lang="ru")
       "distribution": ["-1", "1", "0", "0", "3", "17"],
       "total_votes": "21"
     })
-  
+
   +items-section({ 
     "section_class": "popular-products blue",
     "data_attribute": "Хит",
@@ -71,9 +71,9 @@ html(lang="ru")
     "item_title": ["Часы-пульсометры Beurer PM16", "Компрессорный небулайзер (ингалятор) CN-HT 05 «Джино»", "Тонометр Microlife BP A6 PC", "Массажер антицеллюлитный Cellules MD", "Ультразвуковой увлажнитель Ballu UHB-190"],
     "item_price": ["3 390 р.", "3 990 р.", "5 540 р.", "5 540 р.", "2 990 р." ]
   }) 
-   
+
   +footer()             
-  
+
 +scripts()
 script(src="js/lightslider/lightslider.js") 
 script(src="js/components/sliders/product-slider/product-slider.js" async)

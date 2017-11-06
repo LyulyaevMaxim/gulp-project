@@ -1,412 +1,322 @@
 <!DOCTYPE html>
 <html lang="ru">
-	<head>
-		<title>Страница сравнения</title>
-		<meta charset="utf-8"/>
-		<meta content="Сравнение выбранных товаров" name="description"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<meta name="HandheldFriendly" content="true"/>
-		<meta name="format-detection" content="telephone=no"/>
-		<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-		<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="styles/fonts/pt-sans-regular.woff2"/>
-		<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="styles/fonts/pt-sans-700.woff2"/>
-		<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="styles/fonts/pt-sans-italic.woff2"/>
-		<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="styles/fonts/pt-sans-700-italic.woff2"/>
-		<link href="img/favicons/favicon.ico" rel="shortcut icon"/>
-		<link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png"/>
-		<link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png"/>
-		<link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png"/>
-		<link rel="manifest" href="img/favicons/manifest.json"/>
-		<link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#5bbad5"/>
-		<meta name="theme-color" content="#ffffff"/>
-		<link href="js/owl.carousel/owl.carousel.min.css" rel="stylesheet"/>
-		<link href="js/owl.carousel/owl.theme.default.min.css" rel="stylesheet"/>
-		<link href="js/lightslider/lightslider.css" rel="stylesheet"/>
-		<link href="js/jquery/UI slider/ui-slider.css" rel="stylesheet"/>
-		<link rel="stylesheet" href="styles/styles.css"/>
-		<link rel="stylesheet" href="styles/img.css"/>
-	</head>
-	<body id="compare">
-		<div class="compare-container">
-			<div class="compare-header"> 
-				<h1 class="compare-header__title">Таблица сравнения
-				</h1>
-			</div>
-			<div class="compare-table">
-				<div class="compare-table-button">
-					<div class="compare-table-button__prev">
-					</div>
-					<div class="compare-table-button__next">
-					</div>
-				</div>
-				<div class="compare-table-aside">
-					<div class="compare-table-aside-filters">
-						<div class="compare-table-aside-filters__title">Категория товаров
-						</div>
-						<form class="select" action="">
-							<label class="label"></label>
-							<select class="turnintodropdown_demo2">
+
+<head>
+    <title>Страница сравнения</title>
+    <meta charset="utf-8" />
+    <meta content="Сравнение выбранных товаров" name="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="styles/fonts/pt-sans-regular.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="styles/fonts/pt-sans-700.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="styles/fonts/pt-sans-italic.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="styles/fonts/pt-sans-700-italic.woff2" />
+    <link href="img/favicons/favicon.ico" rel="shortcut icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="img/favicons/manifest.json" />
+    <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="theme-color" content="#ffffff" />
+    <link href="js/owl.carousel/owl.carousel.min.css" rel="stylesheet" />
+    <link href="js/owl.carousel/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="js/lightslider/lightslider.css" rel="stylesheet" />
+    <link href="js/jquery/UI slider/ui-slider.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/img.css" /> </head>
+
+<body id="compare">
+    <div class="compare-container">
+        <div class="compare-header">
+            <h1 class="compare-header__title">Таблица сравнения </h1>
+        </div>
+        <div class="compare-table">
+            <div class="compare-table-button">
+                <div class="compare-table-button__prev"> </div>
+                <div class="compare-table-button__next"> </div>
+            </div>
+            <div class="compare-table-aside">
+                <div class="compare-table-aside-filters">
+                    <div class="compare-table-aside-filters__title">Категория товаров </div>
+                    <form class="select" action=""> <label class="label"></label> <select class="turnintodropdown_demo2">
 								<option>Доставка</option>
 								<option>Англия</option>
 								<option>Северная Ирландия</option>
 								<option>Шотландия</option>
 								<option>Уэльс</option>
 								<option>Австралия</option>
-							</select>
-						</form>
-					</div>
-					<div class="compare-table-aside-buttons"><a class="compare-table-aside-buttons__difference" href="#">Различающиеся</a><a class="compare-table-aside-buttons__all-parameters" href="#">Все параметры</a>
-					</div>
-					<div class="compare-table-aside-parameters">
-						<div class="compare-table-aside-parameters__parameter-name">
-							<p>Производитель</p>
-						</div>
-						<div class="compare-table-aside-parameters__parameter-name">
-							<p>Год релиза</p>
-						</div>
-						<div class="compare-table-aside-parameters__parameter-name">
-							<p>Цвет (спереди/cзади/сбоку)</p>
-						</div>
-						<div class="compare-table-aside-parameters__parameter-name">
-							<p>Поддержка сетей</p>
-						</div>
-						<div class="compare-table-aside-parameters__parameter-name">
-							<p>Количество SIM-карт</p>
-						</div>
-						<div class="compare-table-aside-parameters__parameter-name">
-							<p>Диагональ экрана</p>
-						</div>
-						<div class="compare-table-aside-parameters__parameter-name">
-							<p>Разрешение экрана</p>
-						</div>
-						<div class="compare-table-aside-parameters__parameter-name">
-							<p>Операционная система</p>
-						</div>
-						<div class="compare-table-aside-parameters__parameter-name">
-							<p>Количество мегапикселей основной камеры </p>
-						</div>
-						<div class="compare-table-aside-parameters__parameter-name">
-							<p>Цена</p>
-						</div>
-					</div>
-				</div>
-				<div class="compare-table-body owl-carousel compare-products-slider">
-					<div class="product-item">
-						<div class="product-item-title">
-							<div class="product-item-title__img"><img src="img/content/item--1.jpg" alt="" role="presentation"/>
-							</div>
-							<p class="product-item-title__title">OnePlus 5
-							</p>
-							<p class="product-item-title__description">Cамый лучший телефон
-							</p><a class="product-item-title__buy" href="#">Купить</a>
-						</div>
-						<div class="product-item-info">
-							<div class="product-item-info-block" data-label="Производитель">
-								<p class="product-item-info-block__value">OnePlus OnePlus OnePlus OnePlus OnePlus OnePlus OnePlus
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Год релиза">
-								<p class="product-item-info-block__value">2017
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Цвет (спереди/cзади/сбоку)">
-								<p class="product-item-info-block__value">Серый
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Поддержка сетей">
-								<p class="product-item-info-block__value">OnePlus
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Количество SIM-карт">
-								<p class="product-item-info-block__value">OnePlus
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Диагональ экрана">
-								<p class="product-item-info-block__value">OnePlus
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Разрешение экрана">
-								<p class="product-item-info-block__value">OnePlus
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Операционная система">
-								<p class="product-item-info-block__value">OnePlus
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Количество мегапикселей основной камеры ">
-								<p class="product-item-info-block__value">OnePlus
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Цена">
-								<p class="product-item-info-block__value">OnePlus
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="product-item">
-						<div class="product-item-title">
-							<div class="product-item-title__img"><img src="img/content/item--1.jpg" alt="" role="presentation"/>
-							</div>
-							<p class="product-item-title__title">iPhone 6
-							</p>
-							<p class="product-item-title__description">Якобы самый лучший телефон Якобы самый лучший телефон Якобы самый лучший телефон Якобы самый лучший телефон Якобы самый лучший телефон
-							</p><a class="product-item-title__buy" href="#">Купить</a>
-						</div>
-						<div class="product-item-info">
-							<div class="product-item-info-block" data-label="Производитель">
-								<p class="product-item-info-block__value">Apple
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Год релиза">
-								<p class="product-item-info-block__value">2014
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Цвет (спереди/cзади/сбоку)">
-								<p class="product-item-info-block__value">Apple
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Поддержка сетей">
-								<p class="product-item-info-block__value">Apple Apple Apple  Apple  Apple  Apple  Apple Apple  Apple  Apple  Apple 
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Количество SIM-карт">
-								<p class="product-item-info-block__value">Apple
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Диагональ экрана">
-								<p class="product-item-info-block__value">Apple
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Разрешение экрана">
-								<p class="product-item-info-block__value">Apple
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Операционная система">
-								<p class="product-item-info-block__value">Apple
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Количество мегапикселей основной камеры ">
-								<p class="product-item-info-block__value">Apple
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Цена">
-								<p class="product-item-info-block__value">Apple
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="product-item">
-						<div class="product-item-title">
-							<div class="product-item-title__img"><img src="img/content/item--1.jpg" alt="" role="presentation"/>
-							</div>
-							<p class="product-item-title__title">Galaxy S7
-							</p>
-							<p class="product-item-title__description">Неплохой телефон
-							</p><a class="product-item-title__buy" href="#">Купить</a>
-						</div>
-						<div class="product-item-info">
-							<div class="product-item-info-block" data-label="Производитель">
-								<p class="product-item-info-block__value">Samsung
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Год релиза">
-								<p class="product-item-info-block__value">2016
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Цвет (спереди/cзади/сбоку)">
-								<p class="product-item-info-block__value">Samsung
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Поддержка сетей">
-								<p class="product-item-info-block__value">Samsung
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Количество SIM-карт">
-								<p class="product-item-info-block__value">Samsung
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Диагональ экрана">
-								<p class="product-item-info-block__value">Samsung
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Разрешение экрана">
-								<p class="product-item-info-block__value">Samsung
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Операционная система">
-								<p class="product-item-info-block__value">Samsung
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Количество мегапикселей основной камеры ">
-								<p class="product-item-info-block__value">Samsung
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Цена">
-								<p class="product-item-info-block__value">Samsung
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="product-item">
-						<div class="product-item-title">
-							<div class="product-item-title__img"><img src="img/content/item--1.jpg" alt="" role="presentation"/>
-							</div>
-							<p class="product-item-title__title">Honor 9
-							</p>
-							<p class="product-item-title__description">Красивый телефон
-							</p><a class="product-item-title__buy" href="#">Купить</a>
-						</div>
-						<div class="product-item-info">
-							<div class="product-item-info-block" data-label="Производитель">
-								<p class="product-item-info-block__value">Huavei
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Год релиза">
-								<p class="product-item-info-block__value">2017
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Цвет (спереди/cзади/сбоку)">
-								<p class="product-item-info-block__value">Huavei
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Поддержка сетей">
-								<p class="product-item-info-block__value">Huavei
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Количество SIM-карт">
-								<p class="product-item-info-block__value">Huavei
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Диагональ экрана">
-								<p class="product-item-info-block__value">Huavei
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Разрешение экрана">
-								<p class="product-item-info-block__value">Huavei
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Операционная система">
-								<p class="product-item-info-block__value">Huavei
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Количество мегапикселей основной камеры ">
-								<p class="product-item-info-block__value">Huavei
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Цена">
-								<p class="product-item-info-block__value">Huavei
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="product-item">
-						<div class="product-item-title">
-							<div class="product-item-title__img"><img src="img/content/item--1.jpg" alt="" role="presentation"/>
-							</div>
-							<p class="product-item-title__title">HTC 10
-							</p>
-							<p class="product-item-title__description">Говорят неплохой
-							</p><a class="product-item-title__buy" href="#">Купить</a>
-						</div>
-						<div class="product-item-info">
-							<div class="product-item-info-block" data-label="Производитель">
-								<p class="product-item-info-block__value">HTC
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Год релиза">
-								<p class="product-item-info-block__value">2016
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Цвет (спереди/cзади/сбоку)">
-								<p class="product-item-info-block__value">HTC
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Поддержка сетей">
-								<p class="product-item-info-block__value">HTC
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Количество SIM-карт">
-								<p class="product-item-info-block__value">HTC
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Диагональ экрана">
-								<p class="product-item-info-block__value">HTC
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Разрешение экрана">
-								<p class="product-item-info-block__value">HTC
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Операционная система">
-								<p class="product-item-info-block__value">HTC
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Количество мегапикселей основной камеры ">
-								<p class="product-item-info-block__value">HTC
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Цена">
-								<p class="product-item-info-block__value">HTC
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="product-item">
-						<div class="product-item-title">
-							<div class="product-item-title__img"><img src="img/content/item--1.jpg" alt="" role="presentation"/>
-							</div>
-							<p class="product-item-title__title">Sony XPERIA
-							</p>
-							<p class="product-item-title__description">Так себе
-							</p><a class="product-item-title__buy" href="#">Купить</a>
-						</div>
-						<div class="product-item-info">
-							<div class="product-item-info-block" data-label="Производитель">
-								<p class="product-item-info-block__value">Sony
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Год релиза">
-								<p class="product-item-info-block__value">2016
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Цвет (спереди/cзади/сбоку)">
-								<p class="product-item-info-block__value">Sony
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Поддержка сетей">
-								<p class="product-item-info-block__value">Sony
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Количество SIM-карт">
-								<p class="product-item-info-block__value">Sony
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Диагональ экрана">
-								<p class="product-item-info-block__value">Sony
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Разрешение экрана">
-								<p class="product-item-info-block__value">Sony
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Операционная система">
-								<p class="product-item-info-block__value">Sony
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Количество мегапикселей основной камеры ">
-								<p class="product-item-info-block__value">Sony
-								</p>
-							</div>
-							<div class="product-item-info-block" data-label="Цена">
-								<p class="product-item-info-block__value">Sony
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+							</select> </form>
+                </div>
+                <div class="compare-table-aside-buttons"><a class="compare-table-aside-buttons__difference" href="#">Различающиеся</a><a class="compare-table-aside-buttons__all-parameters" href="#">Все параметры</a> </div>
+                <div class="compare-table-aside-parameters">
+                    <div class="compare-table-aside-parameters__parameter-name">
+                        <p>Производитель</p>
+                    </div>
+                    <div class="compare-table-aside-parameters__parameter-name">
+                        <p>Год релиза</p>
+                    </div>
+                    <div class="compare-table-aside-parameters__parameter-name">
+                        <p>Цвет (спереди/cзади/сбоку)</p>
+                    </div>
+                    <div class="compare-table-aside-parameters__parameter-name">
+                        <p>Поддержка сетей</p>
+                    </div>
+                    <div class="compare-table-aside-parameters__parameter-name">
+                        <p>Количество SIM-карт</p>
+                    </div>
+                    <div class="compare-table-aside-parameters__parameter-name">
+                        <p>Диагональ экрана</p>
+                    </div>
+                    <div class="compare-table-aside-parameters__parameter-name">
+                        <p>Разрешение экрана</p>
+                    </div>
+                    <div class="compare-table-aside-parameters__parameter-name">
+                        <p>Операционная система</p>
+                    </div>
+                    <div class="compare-table-aside-parameters__parameter-name">
+                        <p>Количество мегапикселей основной камеры </p>
+                    </div>
+                    <div class="compare-table-aside-parameters__parameter-name">
+                        <p>Цена</p>
+                    </div>
+                </div>
+            </div>
+            <div class="compare-table-body owl-carousel compare-products-slider">
+                <div class="product-item">
+                    <div class="product-item-title">
+                        <div class="product-item-title__img"><img src="img/content/item--1.jpg" alt="" role="presentation" /> </div>
+                        <p class="product-item-title__title">OnePlus 5 </p>
+                        <p class="product-item-title__description">Cамый лучший телефон </p><a class="product-item-title__buy" href="#">Купить</a> </div>
+                    <div class="product-item-info">
+                        <div class="product-item-info-block" data-label="Производитель">
+                            <p class="product-item-info-block__value">OnePlus OnePlus OnePlus OnePlus OnePlus OnePlus OnePlus </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Год релиза">
+                            <p class="product-item-info-block__value">2017 </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Цвет (спереди/cзади/сбоку)">
+                            <p class="product-item-info-block__value">Серый </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Поддержка сетей">
+                            <p class="product-item-info-block__value">OnePlus </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Количество SIM-карт">
+                            <p class="product-item-info-block__value">OnePlus </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Диагональ экрана">
+                            <p class="product-item-info-block__value">OnePlus </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Разрешение экрана">
+                            <p class="product-item-info-block__value">OnePlus </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Операционная система">
+                            <p class="product-item-info-block__value">OnePlus </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Количество мегапикселей основной камеры ">
+                            <p class="product-item-info-block__value">OnePlus </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Цена">
+                            <p class="product-item-info-block__value">OnePlus </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product-item-title">
+                        <div class="product-item-title__img"><img src="img/content/item--1.jpg" alt="" role="presentation" /> </div>
+                        <p class="product-item-title__title">iPhone 6 </p>
+                        <p class="product-item-title__description">Якобы самый лучший телефон Якобы самый лучший телефон Якобы самый лучший телефон Якобы самый лучший телефон Якобы самый лучший телефон </p><a class="product-item-title__buy" href="#">Купить</a> </div>
+                    <div class="product-item-info">
+                        <div class="product-item-info-block" data-label="Производитель">
+                            <p class="product-item-info-block__value">Apple </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Год релиза">
+                            <p class="product-item-info-block__value">2014 </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Цвет (спереди/cзади/сбоку)">
+                            <p class="product-item-info-block__value">Apple </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Поддержка сетей">
+                            <p class="product-item-info-block__value">Apple Apple Apple Apple Apple Apple Apple Apple Apple Apple Apple </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Количество SIM-карт">
+                            <p class="product-item-info-block__value">Apple </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Диагональ экрана">
+                            <p class="product-item-info-block__value">Apple </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Разрешение экрана">
+                            <p class="product-item-info-block__value">Apple </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Операционная система">
+                            <p class="product-item-info-block__value">Apple </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Количество мегапикселей основной камеры ">
+                            <p class="product-item-info-block__value">Apple </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Цена">
+                            <p class="product-item-info-block__value">Apple </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product-item-title">
+                        <div class="product-item-title__img"><img src="img/content/item--1.jpg" alt="" role="presentation" /> </div>
+                        <p class="product-item-title__title">Galaxy S7 </p>
+                        <p class="product-item-title__description">Неплохой телефон </p><a class="product-item-title__buy" href="#">Купить</a> </div>
+                    <div class="product-item-info">
+                        <div class="product-item-info-block" data-label="Производитель">
+                            <p class="product-item-info-block__value">Samsung </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Год релиза">
+                            <p class="product-item-info-block__value">2016 </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Цвет (спереди/cзади/сбоку)">
+                            <p class="product-item-info-block__value">Samsung </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Поддержка сетей">
+                            <p class="product-item-info-block__value">Samsung </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Количество SIM-карт">
+                            <p class="product-item-info-block__value">Samsung </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Диагональ экрана">
+                            <p class="product-item-info-block__value">Samsung </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Разрешение экрана">
+                            <p class="product-item-info-block__value">Samsung </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Операционная система">
+                            <p class="product-item-info-block__value">Samsung </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Количество мегапикселей основной камеры ">
+                            <p class="product-item-info-block__value">Samsung </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Цена">
+                            <p class="product-item-info-block__value">Samsung </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product-item-title">
+                        <div class="product-item-title__img"><img src="img/content/item--1.jpg" alt="" role="presentation" /> </div>
+                        <p class="product-item-title__title">Honor 9 </p>
+                        <p class="product-item-title__description">Красивый телефон </p><a class="product-item-title__buy" href="#">Купить</a> </div>
+                    <div class="product-item-info">
+                        <div class="product-item-info-block" data-label="Производитель">
+                            <p class="product-item-info-block__value">Huavei </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Год релиза">
+                            <p class="product-item-info-block__value">2017 </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Цвет (спереди/cзади/сбоку)">
+                            <p class="product-item-info-block__value">Huavei </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Поддержка сетей">
+                            <p class="product-item-info-block__value">Huavei </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Количество SIM-карт">
+                            <p class="product-item-info-block__value">Huavei </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Диагональ экрана">
+                            <p class="product-item-info-block__value">Huavei </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Разрешение экрана">
+                            <p class="product-item-info-block__value">Huavei </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Операционная система">
+                            <p class="product-item-info-block__value">Huavei </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Количество мегапикселей основной камеры ">
+                            <p class="product-item-info-block__value">Huavei </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Цена">
+                            <p class="product-item-info-block__value">Huavei </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product-item-title">
+                        <div class="product-item-title__img"><img src="img/content/item--1.jpg" alt="" role="presentation" /> </div>
+                        <p class="product-item-title__title">HTC 10 </p>
+                        <p class="product-item-title__description">Говорят неплохой </p><a class="product-item-title__buy" href="#">Купить</a> </div>
+                    <div class="product-item-info">
+                        <div class="product-item-info-block" data-label="Производитель">
+                            <p class="product-item-info-block__value">HTC </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Год релиза">
+                            <p class="product-item-info-block__value">2016 </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Цвет (спереди/cзади/сбоку)">
+                            <p class="product-item-info-block__value">HTC </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Поддержка сетей">
+                            <p class="product-item-info-block__value">HTC </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Количество SIM-карт">
+                            <p class="product-item-info-block__value">HTC </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Диагональ экрана">
+                            <p class="product-item-info-block__value">HTC </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Разрешение экрана">
+                            <p class="product-item-info-block__value">HTC </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Операционная система">
+                            <p class="product-item-info-block__value">HTC </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Количество мегапикселей основной камеры ">
+                            <p class="product-item-info-block__value">HTC </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Цена">
+                            <p class="product-item-info-block__value">HTC </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product-item-title">
+                        <div class="product-item-title__img"><img src="img/content/item--1.jpg" alt="" role="presentation" /> </div>
+                        <p class="product-item-title__title">Sony XPERIA </p>
+                        <p class="product-item-title__description">Так себе </p><a class="product-item-title__buy" href="#">Купить</a> </div>
+                    <div class="product-item-info">
+                        <div class="product-item-info-block" data-label="Производитель">
+                            <p class="product-item-info-block__value">Sony </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Год релиза">
+                            <p class="product-item-info-block__value">2016 </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Цвет (спереди/cзади/сбоку)">
+                            <p class="product-item-info-block__value">Sony </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Поддержка сетей">
+                            <p class="product-item-info-block__value">Sony </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Количество SIM-карт">
+                            <p class="product-item-info-block__value">Sony </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Диагональ экрана">
+                            <p class="product-item-info-block__value">Sony </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Разрешение экрана">
+                            <p class="product-item-info-block__value">Sony </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Операционная система">
+                            <p class="product-item-info-block__value">Sony </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Количество мегапикселей основной камеры ">
+                            <p class="product-item-info-block__value">Sony </p>
+                        </div>
+                        <div class="product-item-info-block" data-label="Цена">
+                            <p class="product-item-info-block__value">Sony </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
 <script src="js/jquery/jquery.min.js"></script>
 <script src="js/owl.carousel/owl.carousel.js"></script>

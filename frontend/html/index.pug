@@ -46,38 +46,36 @@ html(lang="ru")
   +accordion()
   +rating("-unique-value", 4)
   +radio-item({
-        "indexBlock": "01",
-        "subIndex": "00",
-        "value": "3",
-        "isRequired": "required",
-        "radioName": "delivery_id",
-        "radioTitle": "Бесплатная курьерская доставка",
-        "radioDescription": "При сумме заказа от 2000 руб."
+    "indexBlock": "01",
+    "subIndex": "00",
+    "value": "3",
+    "isRequired": "required",
+    "radioName": "delivery_id",
+    "radioTitle": "Бесплатная курьерская доставка",
+    "radioDescription": "При сумме заказа от 2000 руб."
   })
   +radio-item({
-        "indexBlock": "01",
-        "subIndex": "01",
-        "value": "4",
-        "isRequired": "required",
-        "radioName": "delivery_id",
-        "radioTitle": "Платная курьерская доставка 250 руб.",
-        "radioDescription": "При сумме заказа менее 2000 руб."
+    "indexBlock": "01",
+    "subIndex": "01",
+    "value": "4",
+    "isRequired": "required",
+    "radioName": "delivery_id",
+    "radioTitle": "Платная курьерская доставка 250 руб.",
+    "radioDescription": "При сумме заказа менее 2000 руб."
   })
   +product-files()
   +filter({
-      "accordionIndex": "02",
-      "accordionLabel": "Производитель",
-      "isChecked": "checked",
-      "checkboxIndex": [0, 1, 2, 3, 4, 5, 6, 7, 8],
-      "checkboxLabel": ["Little Doctor (LD)", "Nissei", "Omron", "AND", "Citizen", "Medisana", "VitaDock", "B.Well", "Microlife"],
-      "checkboxChecked": ["", "", "", "", "", "", "", "", ""]
+    "accordionIndex": "02",
+    "accordionLabel": "Производитель",
+    "isChecked": "checked",
+    "checkboxIndex": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+    "checkboxLabel": ["Little Doctor (LD)", "Nissei", "Omron", "AND", "Citizen", "Medisana", "VitaDock", "B.Well", "Microlife"],
+    "checkboxChecked": ["", "", "", "", "", "", "", "", ""]
     })    
 
-+footer()
-
-
+  +footer()
   +popup-login()  
-  
+
 +scripts()
 script(src="js/owl.carousel/owl.carousel.min.js")
 script(src="js/components/sliders/full-slider/full-slider.js" async)

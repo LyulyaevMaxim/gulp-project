@@ -3,7 +3,7 @@
   menu_all_products();
 
   function headerMenu() {
-    var menu = $("#showMainMenu");
+    var menu = $("#showMainMenu ");
 
     menu.click(function() {
       if ($("html").hasClass("block-html")) {
