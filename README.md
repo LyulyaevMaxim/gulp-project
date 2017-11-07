@@ -31,15 +31,21 @@ Fast and effective environment for frontend development
 * демонстрирует как можно использовать:   
 scss + css variables, grid, pug mixins, preload, async
 
-
-
 ## Рекомендуемый порядок действий
-* установить менеджер пакетов yarn (https://yarnpkg.com/en/) - современный аналог npm, разрабатываемый Google и Facebook
-* открыть терминал в папке проекта, выполнить    
+* открываем терминал
+  git --version, если не найден, то устанавливаем https://git-scm.com/ (не забываем галочку add to PATH)   
+  npm -v, если не найден или меньше 3.0, устанавливаем https://nodejs.org/en/ LTS   
+  устанавливаем менеджер пакетов yarn (https://yarnpkg.com/en/)   
+* проверяем:   
+  git --version   
+  npm -v   
+  yarn -v  
+  если что-то не найдено - перезагружаем ПК и проверяем заново, если не помогло - значит что-то не так установили
+ * теперь открываем терминал в папке проекта, поочерёдно выполняем для установки необходимых пакетов
   yarn global add gulpjs/gulp-cli   
   yarn install
-* чтобы начать работу - ввести gulp
-* для оптимизиации папки public - gulp build
+* чтобы начать работать: gulp
+* чтобы оптимизировать папку public перед отправкой на сервер: gulp build
 
 ## Нюансы
 * приложение разбито на "Страницы" (файлы первого уровня в frontend/{html,css,js} и "Компоненты" (логические блоки: header, footer, head, product-items.., и элементы: chekbox, acordion, rating, slider/gallery, slider/full..)
