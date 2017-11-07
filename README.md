@@ -32,18 +32,18 @@ Fast and effective environment for frontend development
 scss + css variables, grid, pug mixins, preload, async
 
 ## Рекомендуемый порядок действий
-* открываем терминал    
+* открываем терминал:    
   **git --version**, если не найден — устанавливаем https://git-scm.com/ (не забываем галочку **add to PATH**)   
-  **npm -v**, если не найден или меньше 3.0 — устанавливаем https://nodejs.org/en/ LTS   
+  **npm -v**, если не найден или меньше 3.0 — устанавливаем https://nodejs.org/en/ (LTS)   
   устанавливаем менеджер пакетов **yarn** (https://yarnpkg.com/en/)   
 * проверяем:   
   **git --version**   
   **npm -v**   
-  **yarn -v ** 
+  **yarn -v**      
   если что-то не найдено — перезагружаем ПК и проверяем заново,    
   если не помогло — значит что-то не так установили
  * теперь открываем терминал в папке проекта, поочерёдно выполняем для установки необходимых пакетов   
-  **yarn global add gulpjs/gulp-cli **  
+  **yarn global add gulpjs/gulp-cli**  
   **yarn install**
 * чтобы начать работать: **gulp**
 * чтобы оптимизировать папку public перед отправкой на сервер: **gulp build**
