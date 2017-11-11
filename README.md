@@ -52,4 +52,5 @@ scss + css variables, grid, pug mixins, preload, async
 * приложение разбито на **"Страницы"** (файлы первого уровня в frontend/{html,css,js} и **"Компоненты"** (логические блоки: header, footer, head, product-items, ...; элементы: chekbox, acordion, rating, slider/gallery, slider/full..)
 * для максимальной скорости работы **перекомпиляция запускается лишь при пересохранении файла "Страниц"** (чтобы обновить catalog.html нужно пересохранить catalog.pug, при сохранении product.pug пересоберётся только этот шаблон)
 
-## Рекомендации по эксплуатации
+## Готовые компоненты
+Часть компонентов находится в этом репозитории. Со временем всё переедет в https://github.com/maxim-buslaev/components-library
