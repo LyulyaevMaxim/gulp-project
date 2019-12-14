@@ -1,0 +1,134 @@
+.light-modal-content {
+  background: $colorWhite;
+  max-height: none;
+  min-width: 280px;
+  max-height: 90vh;
+}
+
+.light-modal-body,
+.light-modal-footer {
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media (--min-tablet) {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+}
+
+.light-modal-header {
+  background: $colorWhite;
+  padding-top: 24px;
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 24px;
+  padding-left: 20px;
+  padding-right: 10px;
+
+  @media (--min-tablet) {
+    padding-left: 34px;
+    padding-right: 26px;
+  }
+}
+
+.light-modal-heading {
+  font-size: $font-size-6;
+  line-height: 42px;
+  color: $colorBlackLight;
+}
+
+.light-modal-close-icon {
+  padding: 16px;
+  background-color: transparent;
+  background-origin: content-box;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transition: initial;
+
+  &:hover {
+    background-color: transparent;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+}
+
+.light-modal-body {
+  display: flex;
+  flex-direction: column;
+  background: $colorWhite;
+  padding-top: 25px;
+  padding-bottom: 10px;
+  overflow: visible;
+
+  .classic-input {
+    width: auto;
+
+    &[required]:invalid {
+      box-shadow: none;
+      border-color: #e1e1e1;
+    }
+  }
+}
+
+.light-modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  background: $colorWhite;
+  padding-bottom: 30px;
+  justify-content: center;
+  @media (--min-tablet) {
+    padding-bottom: 40px;
+  }
+
+  .first-button,
+  .second-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: $FontBold;
+    font-size: $font-size-1;
+    line-height: 18px;
+    text-transform: uppercase;
+    border: 1px solid;
+    border-radius: 30px;
+    height: 50px;
+    cursor: pointer;
+    padding: 0 20px;
+
+    @media (--max-tablet) {
+      width: 100%;
+    }
+  }
+
+  .first-button {
+    color: $colorWhite;
+    background: $colorGold;
+    border-color: $colorGold;
+
+    &:hover {
+      background: $colorWhite;
+      color: $colorGold;
+    }
+
+    & + .second-button {
+      margin-top: 20px;
+
+      @media (--min-tablet) {
+        margin-left: 20px;
+        margin-top: 0;
+      }
+    }
+  }
+
+  .second-button {
+    color: $colorBlackLight;
+    border-color: #b7b7b7;
+
+    &:hover {
+      color: $colorGold;
+      border-color: $colorGold;
+    }
+  }
+}

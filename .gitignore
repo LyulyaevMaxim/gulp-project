@@ -3,3 +3,4 @@ node_modules/
 makets/
 .DS_Store
 public/
+.idea

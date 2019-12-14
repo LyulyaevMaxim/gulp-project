@@ -1,218 +1,185 @@
-/* Gulp Project. Copyright © 2017. 
- * Maxim Buslaev, maximys@protonmail.com
- * ISC Licensed */
-'use strict';
+"use strict";
+const gulp = require("gulp"),
+  newer = require("gulp-newer"),
+  plumber = require("gulp-plumber"),
+  notify = require("gulp-notify");
 
-const
-  gulp = require('gulp'),
-  newer = require('gulp-newer'),
-  plumber = require('gulp-plumber'),
-  notify = require('gulp-notify');
+gulp.task("pug-to-html", () =>
+  gulp
+    .src("src/html/*.pug" /*, { since: gulp.lastRun("pug-to-html") }*/)
+    .pipe(
+      plumber({ errorHandler: notify.onError("Pug: <%= error.message %>") })
+    )
+    .pipe(newer("public"))
+    .pipe(require("gulp-pug")({ pretty: "\t" }))
+    .pipe(gulp.dest("public"))
+);
 
+gulp.task("html", () =>
+  gulp
+    .src("src/html/*.html" /*, { since: gulp.lastRun("html") }*/)
+    .pipe(
+      plumber({ errorHandler: notify.onError("HTML: <%= error.message %>") })
+    )
+    .pipe(newer("public"))
+    .pipe(gulp.dest("public"))
+);
 
-/*--------------------- HTML--------------------------*/
-const
-  pug = require('gulp-pug');
+gulp.task("img", () =>
+  gulp
+    .src("src/img/**/*.*")
+    .pipe(
+      plumber({ errorHandler: notify.onError("IMAGES: <%= error.message %>") })
+    )
+    .pipe(newer("public/img/"))
+    .pipe(
+      require("gulp-imagemin")({
+        optimizationLevel: 5,
+        progressive: true,
+        interlaced: true
+      })
+    )
+    .pipe(gulp.dest("public/img/"))
+);
 
-gulp.task('pug-to-html', function () {
-  return gulp.src('frontend/html/*.pug', { since: gulp.lastRun('pug-to-html') })
-    .pipe(plumber({ errorHandler: notify.onError("Pug: <%= error.message %>") }))
-    .pipe(newer('public'))
-    .pipe(pug({ pretty: '\t' }))
-    .pipe(gulp.dest('public'))
-});
+const postcss = require("gulp-postcss"),
+  sourcemaps = require("gulp-sourcemaps"),
+  rename = require("gulp-rename");
 
-gulp.task('html', function () {
-  return gulp.src('frontend/html/*.html', { since: gulp.lastRun('html') })
-    .pipe(plumber({ errorHandler: notify.onError("HTML: <%= error.message %>") }))
-    .pipe(newer('public'))
-    .pipe(gulp.dest('public'))
-});
-/*---------------------END: HTML--------------------------*/
-
-
-/*---------------------IMG--------------------------*/
-const imagemin = require('gulp-imagemin');
-
-gulp.task('img', function () {
-  return gulp.src('frontend/img/**/*.*')
-    .pipe(plumber({ errorHandler: notify.onError("IMAGES: <%= error.message %>") }))
-    .pipe(newer('public/img/'))
-    .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
-    .pipe(gulp.dest('public/img/'))
-});
-/*---------------------END: IMG--------------------------*/
-
-
-/*---------------------PostCSS--------------------------*/
-const
-  postcss = require('gulp-postcss'),
-  sourcemaps = require('gulp-sourcemaps'),
-  rename = require('gulp-rename'),
-  syntax_scss = require('postcss-scss'),
-  precss = require("precss"),
-  // postcss_css_reset = require('postcss-css-reset'),
-  autoprefixer = require('autoprefixer'),
-  assets = require('postcss-assets'),
-  mqpacker = require('css-mqpacker'),
-  sprites = require('postcss-sprites');
-
-const base_plugins = [
-  precss({ preserve: true }),
-  assets({ loadPaths: ['img/'] }),
-  sprites({ spritePath: './public/img' }),
-  // postcss_css_reset,
-  autoprefixer({ browsers: ['last 5 version'] }),
-  mqpacker({ sort: true })
-];
-
-gulp.task('css', function () {
-  return gulp.src('frontend/css/*.scss', { since: gulp.lastRun('css') })
-    .pipe(plumber({ errorHandler: notify.onError("CSS: <%= error.message %>") }))
+gulp.task("css", () =>
+  gulp
+    .src("src/css/*.scss" /*, { since: gulp.lastRun("css") }*/)
+    .pipe(
+      plumber({ errorHandler: notify.onError("CSS: <%= error.message %>") })
+    )
     .pipe(sourcemaps.init())
-    .pipe(postcss(base_plugins, { parser: syntax_scss }))
-    .pipe(rename({ extname: '.css' }))
+    .pipe(
+      postcss(require("./configs/postcss.config.js").plugins, {
+        parser: require("postcss-scss")
+      })
+    )
+    .pipe(rename({ extname: ".css" }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('public/styles'))
-});
-/*---------------------END: PostCSS--------------------------*/
+    .pipe(gulp.dest("public/styles"))
+);
 
-/*---------------------Fonts--------------------------*/
-gulp.task('fonts', function () {
-  return gulp.src('frontend/css/fonts/**/*.*')
-    .pipe(plumber({ errorHandler: notify.onError("FONTS: <%= error.message %>") }))
-    .pipe(newer('public/styles/fonts/'))
-    .pipe(gulp.dest('public/styles/fonts/'))
-});
-/*---------------------END: Fonts--------------------------*/
+gulp.task("fonts", () =>
+  gulp
+    .src("src/css/fonts/**/*.*")
+    .pipe(
+      plumber({ errorHandler: notify.onError("FONTS: <%= error.message %>") })
+    )
+    .pipe(newer("public/styles/fonts/"))
+    .pipe(gulp.dest("public/styles/fonts/"))
+);
 
-/*---------------------Scripts--------------------------*/
-const babel = require('gulp-babel');
+const compileJS = require("gulp-babel")(require("./configs/babelrc.js"));
 
-gulp.task('scripts', function () {
-  return gulp.src('frontend/js/**/*.*')
-    .pipe(plumber({ errorHandler: notify.onError("JS: <%= error.message %>") }))
-    .pipe(newer('public/js'))
-    .pipe(gulp.dest('public/js'))
-});
+gulp.task("js", () =>
+  gulp
+    .src("src/components/**/*.js", {
+      since: gulp.lastRun("js")
+    })
+    .pipe(
+      plumber({
+        errorHandler: notify.onError(
+          "JS (scripts-components): <%= error.message %>"
+        )
+      })
+    )
+    .pipe(newer("public/js/components"))
+    .pipe(compileJS)
+    .pipe(gulp.dest("public/js/components"))
+);
 
-gulp.task('scripts-es', function () {
-  return gulp.src('public/js/*.js')
-    .pipe(plumber({ errorHandler: notify.onError("JS: <%= error.message %>") }))
-    .pipe(babel({ presets: ['env'] }))
-    .pipe(gulp.dest('public/js'))
-});
+const libraries = {
+  names: Object.keys(require(`./package.json`).dependencies),
+  get sources() {
+    return this.names.map(libraryName => `./node_modules/${libraryName}/**`);
+  },
+  get dist() {
+    return this.names.map(libraryName => `public/libs/${libraryName}`);
+  }
+};
 
-gulp.task('scripts-components', function () {
-  return gulp.src('frontend/components/**/*.js', { since: gulp.lastRun('scripts-components') })
-    .pipe(plumber({ errorHandler: notify.onError("JS: <%= error.message %>") }))
-    .pipe(newer('public/js/components'))
-    .pipe(gulp.dest('public/js/components'))
-});
+gulp.task("import-libraries", () =>
+  gulp
+    .src(libraries.sources)
+    .pipe(
+      plumber({
+        errorHandler: notify.onError("Import libraries: <%= error.message %>")
+      })
+    )
+    // .pipe(newer("public/libs"))
+    .pipe(
+      gulp.dest(file => {
+        const libraryName = file.base.split("node_modules/")[1];
+        return `public/libs/${libraryName}`;
+      })
+    )
+);
 
-gulp.task('components-es', function () {
-  return gulp.src('public/js/components/**/*.js')
-    .pipe(plumber({ errorHandler: notify.onError("JS: <%= error.message %>") }))
-    .pipe(babel({ presets: ['env'] }))
-    .pipe(gulp.dest('public/js/components'))
-});
-/*---------------------END: Scripts--------------------------*/
+gulp.task("js-optim", () =>
+  gulp
+    .src("public/js/**/*.js")
+    .pipe(
+      plumber({
+        errorHandler: notify.onError("JS (optimization): <%= error.message %>")
+      })
+    )
+    .pipe(require("gulp-uglify-es").default())
+    .pipe(gulp.dest("public/js"))
+);
 
+gulp.task("сss-optim", () =>
+  gulp
+    .src("public/styles/**/*.css")
+    .pipe(
+      plumber({
+        errorHandler: notify.onError("CSS (optimization): <%= error.message %>")
+      })
+    )
+    .pipe(postcss([require("cssnano")]))
+    .pipe(gulp.dest("public"))
+);
 
-/*---------------------Code formatting--------------------------*/
-const
-  prettier = require('gulp-prettier-plugin'),
-  gulpPugBeautify = require('gulp-pug-beautify'),
-  htmlbeautify = require('gulp-html-beautify');
-
-gulp.task('pug-formatting', function () {
-  return gulp.src(['frontend/components/**/*.pug', 'frontend/html/*.pug'], { since: gulp.lastRun('pug-formatting') })
-    .pipe(plumber({ errorHandler: notify.onError("Pug-formatting: <%= error.message %>") }))
-    .pipe(gulpPugBeautify({ omit_empty: true }))
-    .pipe(gulp.dest(file => file.base))
-});
-
-gulp.task('scss-formatting', function () {
-  return gulp.src("frontend/**/*.scss", { since: gulp.lastRun('scss-formatting') })
-    .pipe(plumber({ errorHandler: notify.onError("SCSS-formatting: <%= error.message %>") }))
-    .pipe(prettier(undefined, { filter: true }))
-    .pipe(gulp.dest(file => file.base))
-});
-
-gulp.task('js-formatting', function () {
-  return gulp.src(['frontend/components/**/*.js', 'frontend/js/**/*.js'], { since: gulp.lastRun('js-formatting') })
-    .pipe(plumber({ errorHandler: notify.onError("JS-formatting: <%= error.message %>") }))
-    .pipe(prettier(undefined, { filter: true }))
-    .pipe(gulp.dest(file => file.base))
-});
-
-gulp.task('html-formatting', function () {
-  return gulp.src("public/**/*.html", { since: gulp.lastRun('html-formatting') })
-    .pipe(plumber({ errorHandler: notify.onError("HTML-formatting: <%= error.message %>") }))
-    .pipe(htmlbeautify())
-      .pipe(gulp.dest(file => file.base))
-});
-
-gulp.task('pug-formatting', function () {
-  return gulp.src(['frontend/components/**/*.pug', 'frontend/html/*.pug'], { since: gulp.lastRun('pug-formatting') })
-    .pipe(plumber({ errorHandler: notify.onError("Pug-formatting: <%= error.message %>") }))
-    .pipe(gulpPugBeautify({ omit_empty: true }))
-    .pipe(gulp.dest(file => file.base))
-});
-/*---------------------END: Scripts--------------------------*/
-
-
-/*---------------------Build--------------------------*/
-const
-  uglify = require('gulp-uglify'),
-  cssnano = require('cssnano'),
-  optimization_plugins = [cssnano],
-  del = require('del');
-
-gulp.task('js-optim', function () {
-  return gulp.src('public/js/**/*.js')
-    .pipe(plumber({ errorHandler: notify.onError("JS: <%= error.message %>") }))
-    .pipe(uglify())
-    .pipe(gulp.dest('public/js'));
-});
-
-gulp.task('сss-optim', function () {
-  return gulp.src('public/**/*.css')
-    .pipe(plumber({ errorHandler: notify.onError("CSS: <%= error.message %>") }))
-    .pipe(postcss(optimization_plugins))
-    .pipe(gulp.dest('public'));
-});
-
-gulp.task('build', gulp.parallel('js-optim', 'сss-optim'));
-/*---------------------END: Build--------------------------*/
-
-
-/*---------------------RELOAD BROWSERS--------------------------*/
-const browserSync = require('browser-sync').create();
-gulp.task('reload', function (done) {
+const browserSync = require("browser-sync").create();
+gulp.task("reload", done => {
   browserSync.reload();
   done();
 });
-/*---------------------END: RELOAD BROWSERS--------------------------*/
 
+const compileAll = gulp.parallel(
+    "import-libraries",
+    gulp.series("fonts", "img", "css"),
+    "js",
+    "pug-to-html",
+    "html"
+  ),
+  cleanBuildFolder = async () => await require("del")(["./public"]);
 
-gulp.task('default', gulp.series(gulp.parallel(gulp.series('fonts', 'img', 'css'), gulp.series('scripts', 'scripts-components', 'scripts-es', 'components-es'), gulp.series('pug-to-html', 'html', function () {
-  browserSync.init({
-    server: {
-      baseDir: "./public/"
-    }
+gulp.task(
+  "default",
+  gulp.series(cleanBuildFolder, compileAll, function() {
+    browserSync.init({
+      server: {
+        baseDir: "./public/"
+      }
+    });
+    gulp.watch("src/css/fonts/**/*.*", gulp.series("fonts", "reload"));
+    gulp.watch("src/img/**/*.*", gulp.series("img", "reload"));
+    gulp.watch("src/**/*.scss", gulp.series("css", "reload"));
+    gulp.watch("src/**/*.js", gulp.series("js", "reload"));
+    gulp.watch("src/**/*.pug", gulp.series("pug-to-html", "reload"));
+    gulp.watch("src/**/*.html", gulp.series("html", "reload"));
   })
-  gulp.watch('frontend/css/fonts/**/*.*', gulp.series('fonts', 'reload'));
-  gulp.watch('frontend/img/**/*.*', gulp.series('img', 'reload'));
-  gulp.watch(['frontend/**/*.scss'], gulp.series('scss-formatting'));
-  gulp.watch(['frontend/css/*.scss'], gulp.series('css', 'reload'));
-  gulp.watch([
-    'frontend/js/**/*.js', 'frontend/components/**/*.js'
-  ], gulp.series('js-formatting',
-    gulp.series('scripts', 'scripts-components', 'scripts-es', 'components-es', 'reload')));
+);
 
-  gulp.watch(['frontend/components/**/*.pug', 'frontend/html/*.pug'], gulp.series('pug-formatting'));
-  gulp.watch('frontend/html/*.pug', gulp.series('pug-to-html', 'reload'));
-  gulp.watch(['frontend/html/*.html'], gulp.series('html', 'reload'));
-}))
-));
+gulp.task(
+  "build",
+  gulp.series(
+    cleanBuildFolder,
+    compileAll,
+    gulp.parallel("js-optim", "сss-optim")
+  )
+);

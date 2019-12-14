@@ -1,0 +1,19 @@
+.classic-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 20px;
+  color: $colorWhite;
+  font-size: $font-size-1;
+  line-height: 18px;
+  background: $colorGold;
+  border-radius: 60px;
+  border: 1px solid $colorGold;
+  cursor: pointer;
+
+  &:hover {
+    background: transparent;
+    color: $colorGold;
+  }
+}
