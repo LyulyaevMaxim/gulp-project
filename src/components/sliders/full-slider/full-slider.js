@@ -1,8 +1,8 @@
-(function() {
-  fullSlider();
+;(function() {
+  fullSlider()
 
   function fullSlider() {
-    var owl = $(".owl-full-slider");
+    var owl = $('.owl-full-slider')
     owl.owlCarousel({
       margin: 0,
       items: 1,
@@ -14,9 +14,9 @@
       responsive: {
         768: {
           dots: true,
-          nav: true
-        }
-      }
-    });
+          nav: true,
+        },
+      },
+    })
   }
-})();
+})()

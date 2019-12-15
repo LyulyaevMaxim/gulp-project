@@ -1,6 +1,6 @@
 /* you can run "yarn stylelint-find-rules" to find stylelint rules that are not unused, deprecated or invalid */
-const path = require("path"),
-  root = path.resolve(__dirname, "../../");
+const path = require('path'),
+  root = path.resolve(__dirname, '../../')
 
 module.exports = {
   extends: [
@@ -59,5 +59,5 @@ module.exports = {
     // "no-missing-end-of-source-newline": null,
     // "comment-empty-line-before": null,
     // "comment-whitespace-inside": null
-  }
-};
+  },
+}

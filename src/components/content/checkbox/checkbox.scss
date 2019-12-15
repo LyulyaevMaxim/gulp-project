@@ -28,7 +28,7 @@ checkbox {
     }
 
     &::before {
-      content: "";
+      content: '';
       background: $colorWhite;
       border: 1px solid #9b9b9b;
       border-radius: 3px;
@@ -41,7 +41,7 @@ checkbox {
     }
 
     &::after {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       min-width: 25px;

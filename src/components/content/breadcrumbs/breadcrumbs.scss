@@ -46,7 +46,7 @@ breadcrumbs {
     }
 
     &:not(:first-child)::before {
-      content: "";
+      content: '';
       display: block;
       background-repeat: no-repeat;
       background-position: 50%;

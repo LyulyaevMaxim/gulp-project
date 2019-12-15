@@ -216,7 +216,7 @@ product-header product-information {
     }
 
     &::before {
-      content: "";
+      content: '';
       display: block;
       background-repeat: no-repeat;
       min-width: 17px;
@@ -230,7 +230,7 @@ product-header product-information {
     }
 
     &::after {
-      content: "Добавить к сравнению";
+      content: 'Добавить к сравнению';
       display: block;
       color: #4a4a4a;
       font-size: 14px;
@@ -258,7 +258,7 @@ product-header product-information {
     }
 
     &::before {
-      content: "";
+      content: '';
       display: block;
       background-repeat: no-repeat;
       min-width: 12px;
@@ -305,7 +305,7 @@ product-header product-information {
       }
 
       &::before {
-        content: "";
+        content: '';
         display: block;
         background-repeat: no-repeat;
         min-width: 24px;

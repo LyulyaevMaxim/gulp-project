@@ -91,7 +91,7 @@ $width-column-table: 360px;
     }
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 15px;
     }
@@ -299,7 +299,7 @@ $width-column-table: 360px;
 
         &::before {
           /*@include bg(header/cart--white.svg);*/
-          content: "";
+          content: '';
           margin-right: 12px;
         }
 
@@ -308,7 +308,6 @@ $width-column-table: 360px;
           color: #ef562d;
 
           &::before {
-
           }
         }
       }

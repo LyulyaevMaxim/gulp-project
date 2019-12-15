@@ -41,10 +41,11 @@ catalog-items-section.list {
 
       @media (--min-desktop) {
         display: grid;
-        grid-template: "title price" "product-characteristics-list add-to-cart"
-          "product-characteristics-list rating-block"
-          "product-characteristics-list add-to-compare"
-          "product-characteristics-list product-in-stock";
+        grid-template:
+          'title price' 'product-characteristics-list add-to-cart'
+          'product-characteristics-list rating-block'
+          'product-characteristics-list add-to-compare'
+          'product-characteristics-list product-in-stock';
         grid-template-columns: 55% 38.6%;
         align-items: flex-start;
         margin-top: 18px;
@@ -52,8 +53,9 @@ catalog-items-section.list {
 
       @media (--min-big-desktop) {
         margin-top: 10px;
-        grid-template: "title price rating-block" "title price add-to-compare"
-          "product-characteristics-list add-to-cart product-in-stock ";
+        grid-template:
+          'title price rating-block' 'title price add-to-compare'
+          'product-characteristics-list add-to-cart product-in-stock ';
         grid-template-columns: 62% 19.5% 14.5%;
         margin-left: auto;
         width: 79%;

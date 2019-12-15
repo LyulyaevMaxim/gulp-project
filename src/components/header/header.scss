@@ -78,7 +78,7 @@ header {
     }
   }
 
-  input[type="search"] {
+  input[type='search'] {
     display: none;
     font-size: $font-size-1;
     line-height: 18px;
@@ -103,7 +103,7 @@ header {
     }
   }
 
-  input[type="submit"] {
+  input[type='submit'] {
     display: none;
 
     @media (--min-tablet) {
@@ -151,7 +151,7 @@ header {
 
   &::after {
     @media (--min-tablet) {
-      content: "";
+      content: '';
       display: inline-flex;
       background: #b7b7b7;
       width: 1px;
@@ -210,7 +210,7 @@ header {
 
   &::after {
     @media (--min-desktop) {
-      content: "";
+      content: '';
       display: inline-flex;
       background: #b7b7b7;
       width: 1px;
@@ -259,7 +259,7 @@ header {
 
   &::after {
     @media (--min-tablet) {
-      content: "";
+      content: '';
       display: inline-flex;
       background: #b7b7b7;
       width: 1px;
@@ -319,7 +319,7 @@ header {
     cursor: pointer;
 
     &::after {
-      content: "";
+      content: '';
       display: block;
       opacity: 0;
       position: absolute;
@@ -606,7 +606,7 @@ header {
 
     &::after {
       @media (--min-tablet) {
-        content: "";
+        content: '';
         display: block;
         width: 15px;
         height: 8px;
@@ -778,7 +778,7 @@ header {
 
     &::after {
       @media (--min-tablet) {
-        content: "";
+        content: '';
         display: inline-flex;
         background: #b7b7b7;
         width: 1px;
@@ -819,7 +819,7 @@ header {
 
     &::after {
       @media (--min-tablet) {
-        content: "";
+        content: '';
         display: inline-flex;
         background: #b7b7b7;
         width: 1px;
@@ -857,7 +857,7 @@ header {
 
     &::after {
       @media (--min-tablet) {
-        content: "";
+        content: '';
         display: inline-flex;
         background: #b7b7b7;
         width: 1px;
@@ -1001,12 +1001,12 @@ header {
       padding-left: 22px;
       padding-right: 22px;
 
-      & + input[type="submit"] {
+      & + input[type='submit'] {
         margin-top: 19px;
       }
     }
 
-    input[type="submit"] {
+    input[type='submit'] {
       display: flex;
       border: none;
       align-items: center;
@@ -1106,7 +1106,7 @@ header {
       z-index: 2;
 
       &::before {
-        content: "";
+        content: '';
         display: block;
         background-repeat: no-repeat;
         background-position: 50%;
@@ -1132,7 +1132,7 @@ header {
 
     &::before {
       display: block;
-      content: "";
+      content: '';
       background-repeat: no-repeat;
       width: 18px;
       height: 18px;
@@ -1229,7 +1229,7 @@ header {
     height: 11px;
     background-repeat: no-repeat;
     background-position: 50%;
-    content: "";
+    content: '';
     margin-left: auto;
     margin-right: 32px;
     margin-right: 26px;
@@ -1280,7 +1280,7 @@ header {
           height: 11px;
           background-repeat: no-repeat;
           background-position: 50%;
-          content: "";
+          content: '';
         }
       }
 

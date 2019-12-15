@@ -10,7 +10,7 @@ items-section {
   }
 
   &::before {
-    content: "";
+    content: '';
     width: 100%;
     height: 100%;
     z-index: -1;
@@ -67,7 +67,7 @@ items-section {
     }
 
     &::after {
-      content: "";
+      content: '';
       display: block;
       background-position: 50%;
       background-repeat: no-repeat;

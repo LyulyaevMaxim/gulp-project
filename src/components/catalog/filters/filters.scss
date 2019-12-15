@@ -103,7 +103,7 @@ block-for-filters {
       }
 
       &::after {
-        content: "";
+        content: '';
         display: block;
         width: 14px;
         height: 13px;
@@ -218,7 +218,7 @@ block-for-filters {
       }
 
       &::after {
-        content: "";
+        content: '';
         display: block;
         background-position: 50%;
         background-repeat: no-repeat;
@@ -267,7 +267,7 @@ block-for-filters.active {
   }
 
   &::before {
-    content: "Фильтры";
+    content: 'Фильтры';
     display: inline-flex;
     font-size: $font-size-3;
     line-height: 29px;
@@ -370,7 +370,7 @@ block-for-filters.active {
       }
 
       &::before {
-        content: "от";
+        content: 'от';
       }
     }
 
@@ -381,7 +381,7 @@ block-for-filters.active {
       }
 
       &::before {
-        content: "до";
+        content: 'до';
       }
     }
 

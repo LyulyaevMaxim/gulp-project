@@ -2,7 +2,7 @@ const path = require('path'),
   fs = require('fs'),
   ncu = require('npm-check-updates')
 
-require('events').EventEmitter.defaultMaxListeners = 30;
+require('events').EventEmitter.defaultMaxListeners = 30
 
 function findFiles(folder, pattern = /.*/, callback) {
   const flist = []

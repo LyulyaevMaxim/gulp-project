@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <title>Главная</title>
+    <meta charset="utf-8" />
+    <meta content="Страница, написанная не на Pug" name="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="styles/fonts/pt-sans-regular.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="styles/fonts/pt-sans-700.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="styles/fonts/pt-sans-italic.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="styles/fonts/pt-sans-700-italic.woff2" />
 
-<head>
-  <title>Главная</title>
-  <meta charset="utf-8" />
-  <meta content="Страница, написанная не на Pug" name="description" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="HandheldFriendly" content="true" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="styles/fonts/pt-sans-regular.woff2" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="styles/fonts/pt-sans-700.woff2" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="styles/fonts/pt-sans-italic.woff2" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="styles/fonts/pt-sans-700-italic.woff2" />
+    <link href="img/favicons/favicon.ico" rel="shortcut icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="img/favicons/manifest.json" />
+    <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="theme-color" content="#ffffff" />
 
-  <link href="img/favicons/favicon.ico" rel="shortcut icon" />
-  <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png" />
-  <link rel="manifest" href="img/favicons/manifest.json" />
-  <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#5bbad5" />
-  <meta name="theme-color" content="#ffffff" />
-
-  <link href="libs/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet" />
-  <link href="libs/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet" />
-  <link href="libs/lightslider/dist/css/lightslider.min.css" rel="stylesheet" />
-  <link href="libs/jquery-ui-slider/jquery-ui.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/styles.css" />
-  <link rel="stylesheet" href="styles/img.css" />
-</head>
-
+    <link href="libs/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="libs/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="libs/lightslider/dist/css/lightslider.min.css" rel="stylesheet" />
+    <link href="libs/jquery-ui-slider/jquery-ui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/img.css" />
+  </head>
 </html>
 <header>
   <div class="header__container">
@@ -41,22 +39,17 @@
       <input type="submit" />
     </form>
     <div class="header-address">
-      <div class="header-address__icon">
-      </div>
-      <div class="header-address__text">Нижний Новгород
-      </div>
+      <div class="header-address__icon"></div>
+      <div class="header-address__text">Нижний Новгород</div>
     </div>
     <div class="header-timework">
-      <div class="header-timework__text">Ежедневно с 8 до 17
-      </div>
+      <div class="header-timework__text">Ежедневно с 8 до 17</div>
     </div>
     <div class="header-login">
       <input type="checkbox" id="showAuthForm" />
       <label for="showAuthForm">
-        <div class="header-login__icon">
-        </div>
-        <div class="header-login__text">Вход
-        </div>
+        <div class="header-login__icon"></div>
+        <div class="header-login__text">Вход</div>
       </label>
       <div class="header-login__auth-form">
         <div class="no-auth">
@@ -64,7 +57,12 @@
           <a class="second-button" href="#">зарегистрироваться</a>
         </div>
         <div class="auth-successful">
-          <a class="second-button" href="#" onclick="$(this).closest('.header-login__auth-form').removeClass('auth-successful');">выйти</a>
+          <a
+            class="second-button"
+            href="#"
+            onclick="$(this).closest('.header-login__auth-form').removeClass('auth-successful');"
+            >выйти</a
+          >
           <div class="auth-successful__links">
             <a href="#">Личные данные</a>
             <a href="#">История заказов</a>
@@ -76,10 +74,8 @@
       </div>
     </div>
     <div class="header-cart">
-      <div class="header-cart__icon" quantity="2">
-      </div>
-      <div class="header-cart__text">2 690 руб
-      </div>
+      <div class="header-cart__icon" quantity="2"></div>
+      <div class="header-cart__text">2 690 руб</div>
     </div>
     <div class="header-menu">
       <div class="header-menu__catalog">
@@ -88,7 +84,7 @@
           <div class="header-menu-catalog-body__title">
             <div class="down"></div>
             <p>Каталог</p>
-            <div class="close"> </div>
+            <div class="close"></div>
           </div>
           <nav>
             <ul class="header-menu-catalog-body__root_menu">
@@ -233,7 +229,7 @@
           <div class="title">
             <span>Часы-пульсометры Beurer PM16 </span>
           </div>
-          <div class="add-to-compare"> </div>
+          <div class="add-to-compare"></div>
           <div class="price">
             <p>3 390 р.</p>
             <p class="old">18 199 р.</p>
@@ -252,7 +248,7 @@
           <div class="title">
             <span>Ультразвуковой увлажнитель Ballu UHB-190 </span>
           </div>
-          <div class="add-to-compare"> </div>
+          <div class="add-to-compare"></div>
           <div class="price">
             <p>2 390 р.</p>
             <p class="old">18 199 р.</p>
@@ -271,7 +267,7 @@
           <div class="title">
             <span>Массажер антицеллюлитный Cellules MD </span>
           </div>
-          <div class="add-to-compare"> </div>
+          <div class="add-to-compare"></div>
           <div class="price">
             <p>5 540 р.</p>
             <p class="old">18 199 р.</p>
@@ -290,7 +286,7 @@
           <div class="title">
             <span>Тонометр Microlife BP A6 PC </span>
           </div>
-          <div class="add-to-compare"> </div>
+          <div class="add-to-compare"></div>
           <div class="price">
             <p>5 540 р.</p>
             <p class="old">18 199 р.</p>
@@ -322,7 +318,7 @@
   <accordion>
     <input type="checkbox" id="showCallForm" />
     <label for="showCallForm">
-      <p>Цена </p>
+      <p>Цена</p>
     </label>
     <accordion-content>
       <p>Ура</p>
@@ -465,8 +461,7 @@
     </nav>
     <div class="footer-info-wrapper">
       <div class="footer-info-callback">
-        <div class="footer-info-callback__icon">
-        </div>
+        <div class="footer-info-callback__icon"></div>
         <div class="footer-info-callback__numbers">
           <a href="tel:88007754330">8 800 775-43-30</a>
           <p>Звонок бесплатный</p>

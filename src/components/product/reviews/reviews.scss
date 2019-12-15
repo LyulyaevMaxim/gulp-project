@@ -181,7 +181,7 @@ product-review {
     margin-top: 11px;
 
     &::before {
-      content: "Достоинства:";
+      content: 'Достоинства:';
       margin-bottom: 6px;
     }
   }
@@ -194,7 +194,7 @@ product-review {
     }
 
     &::before {
-      content: "Недостатки:";
+      content: 'Недостатки:';
       margin-bottom: 3px;
     }
   }
@@ -208,7 +208,7 @@ product-review {
     }
 
     &::before {
-      content: "";
+      content: '';
       display: block;
       background-repeat: no-repeat;
       background-position: 50%;

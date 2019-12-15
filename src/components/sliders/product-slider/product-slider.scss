@@ -38,7 +38,7 @@ product-slider {
       justify-content: center;
 
       &::before {
-        content: "";
+        content: '';
         background-repeat: no-repeat;
         background-position: 50%;
         width: 90px;
@@ -60,15 +60,15 @@ product-slider {
     }
 
     .best-price::after {
-      content: "Лучшая цена";
+      content: 'Лучшая цена';
     }
 
     .new-products::after {
-      content: "Новинка";
+      content: 'Новинка';
     }
 
     .popular-products::after {
-      content: "ХИТ";
+      content: 'ХИТ';
     }
   }
 

@@ -39,7 +39,7 @@ item {
       }
 
       &::before {
-        content: "";
+        content: '';
         background-repeat: no-repeat;
         background-position: 50%;
         width: 90px;
@@ -113,7 +113,7 @@ item {
     }
 
     &::before {
-      content: "";
+      content: '';
       display: block;
       background-repeat: no-repeat;
       min-width: 12px;
@@ -180,7 +180,7 @@ item {
     grid-area: add-to-compare;
 
     &::before {
-      content: "";
+      content: '';
       display: block;
       background-repeat: no-repeat;
       min-width: 17px;
@@ -190,7 +190,7 @@ item {
     }
 
     &::after {
-      content: "Добавить к сравнению";
+      content: 'Добавить к сравнению';
       display: block;
       color: $colorBlackLight;
       font-size: 14px;

@@ -1,7 +1,7 @@
 @mixin bg($name) {
-  background: url("../img/sprite/$name") 50% no-repeat;
-  width: width("../img/sprite/$name");
-  height: height("../img/sprite/$name");
+  background: url('../img/sprite/$name') 50% no-repeat;
+  width: width('../img/sprite/$name');
+  height: height('../img/sprite/$name');
   display: block;
 }
 

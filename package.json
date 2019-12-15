@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "develop": "gulp",
-    "format": "prettier --write *.{html,pug,js,json,css,scss,svg}",
+    "format": "prettier --write './**/*.{html,js,json,css,scss}'",
     "lint:js": "eslint --fix './src/**/*.js'",
     "lint:css": "stylelint './src/**/*.{css,scss}'",
     "build": "gulp build",

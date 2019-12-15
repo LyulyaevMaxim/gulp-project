@@ -7,7 +7,7 @@ catalog-block {
     margin-right: $margin-tablet;
     display: grid;
     align-items: flex-start;
-    grid-template: "filters toggles" "filters items";
+    grid-template: 'filters toggles' 'filters items';
 
     block-for-filters {
       grid-area: filters;
