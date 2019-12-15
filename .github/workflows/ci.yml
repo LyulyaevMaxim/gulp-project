@@ -28,7 +28,7 @@ jobs:
         run: echo ${{ toJson(steps) }} && exit 1
 
   deploy:
-    needs: [linters, tests]
+    needs: [linters]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
