@@ -1,0 +1,88 @@
+include ../components/head/head
+include _assets/bemto/bemto
+- set_bemto_settings({ modifier: "--" , class_delimiter :  ' | ' })
+
+include ../components/header/header
+include ../components/footer/footer
+include ../components/connect-js/scripts
+//- контент
+include ../components/content/items/items-section
+include ../components/content/items/item
+include ../components/content/breadcrumbs/breadcrumbs
+include ../components/content/pagination/pagination
+include ../components/content/rating/rating
+include ../components/content/accordion/accordion
+include ../components/content/checkbox/checkbox
+//- catalog
+include ../components/catalog/toggles/toggles
+include ../components/catalog/filters/filters
+include ../components/catalog/filters/filter
+include ../components/catalog/items/items
+include ../components/catalog/items/item
+
+doctype html
+html(lang="ru")
+  head
+    +head({
+      "title": "Каталог",
+      "description": "Страница каталога"
+    })
+
++header()
++b.BODY.catalog-page
+  +breadcrumbs({"index": [0, 1, 2, 3],
+    "title": ["Главная", "Каталог", "Диагностика организма", "Тонометры"]
+  })
+
+  h1 Тонометры  
+
+  catalog-block#catalog-block
+    +block-for-toggles()
+    +block-for-filters()
+    +catalog-items({ 
+    "section_class": "table",
+    "items_index": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    "item_picture": [
+      "item--bwell.jpg", "product.jpg", "item--medisanaBU.jpg", "item--medisana.jpg",        
+      "item--bu575.jpg", "item--w100.jpg", "item--bwell.jpg", "product.jpg",
+      "item--bwell.jpg", "product.jpg", "item--medisana.jpg",  "item--medisanaBU.jpg",      
+      "item--bwell.jpg", "product.jpg", "item--medisana.jpg",
+      "item--bwell.jpg", "product.jpg", "item--medisana.jpg", "item--bwell.jpg", "product.jpg", "item--medisanaBU.jpg", "item--medisana.jpg",        
+      "item--bu575.jpg", "item--w100.jpg", "item--bwell.jpg", "product.jpg",
+      "item--bwell.jpg", "product.jpg"
+      ],
+
+    "item_title": [
+      "Тонометр B.Well WA-55 c адаптером и манжетой M-L", "Тонометр Microlife BP A6 PC", "Плечевой тонометр Medisana BU 550 Connect", "Плечевой тонометр Medisana Cardio Compact",         
+      "Плечевой тонометр Medisana BU 575 Connect", "Тонометр Microlife W 100", "Тонометр B.Well WA-55 c адаптером и ман adAsSA", "Плечевой тонометр Medisana Cardio sgfdg",
+      "Тонометр Microlife BP A6 PC", "Плечевой тонометр Medisana BU 550 SBVCB", "Плечевой тонометр Medisana BU 575 DGFD", "Тонометр B.Well WA-33 манжета М", "Тонометр B.Well WA-33 манжета М",
+        "Тонометр B.Well WA-55 c адаптером и ман dgdgdg", "Плечевой тонометр Medisana Cardio sgfdg", "Тонометр Microlife BP A6 PC",
+        "Тонометр B.Well WA-55 c адаптером и ман dgdgdg", "Плечевой тонометр Medisana Cardio sgfdg", "Тонометр Microlife BP A6 PC", "Тонометр B.Well WA-55 c адаптером и манжетой M-L", "Тонометр Microlife BP A6 PC", "Плечевой тонометр Medisana BU 550 Connect", "Плечевой тонометр Medisana Cardio Compact",         
+      "Плечевой тонометр Medisana BU 575 Connect", "Тонометр Microlife W 100", "Тонометр B.Well WA-55 c адаптером и ман adAsSA", "Плечевой тонометр Medisana Cardio sgfdg",  "Тонометр B.Well WA-55 c адаптером и ман dgdgdg"
+      ],
+    "item_price": ["2 634 р.", "5 540 р.", "5 540 р.", "6 736 р.", 
+      "5 540 р.", "1 640 р.", "2 634 р.", "5 540 р.",
+      "5 540 р.", "6 736 р.", "5 540 р.", "1 640 р.",
+      "2 634 р.", "5 540 р.", "5 540 р.",  "2 634 р.", "5 540 р.", "5 540 р.", "2 634 р.", "5 540 р.", "5 540 р.", "6 736 р.", 
+      "5 540 р.", "1 640 р.", "2 634 р.", "5 540 р.",
+      "5 540 р.", "6 736 р."
+]
+  }) 
+
+  +items-section({ 
+    "section_class": "popular-products purple",
+    "data_attribute": "Хит",
+    "section_title": "Вы смотрели",
+    "items_index": [0, 1, 2, 3, 4],
+    "item_picture": ["item--clock.jpg", "item--milk.jpg", "item--tonometr.jpg", "item--massage.jpg", "item--ultra.jpg"],
+    "item_title": ["Часы-пульсометры Beurer PM16", "Компрессорный небулайзер (ингалятор) CN-HT 05 «Джино»", "Тонометр Microlife BP A6 PC", "Массажер антицеллюлитный Cellules MD", "Ультразвуковой увлажнитель Ballu UHB-190"],
+    "item_price": ["3 390 р.", "3 990 р.", "5 540 р.", "5 540 р.", "2 990 р." ]
+  }) 
+
+  +footer()             
+
++scripts()
+script(src="js/components/items/items-section.js" async)
+script(src="libs/jquery-ui-slider/jquery-ui.min.js")
+script(src="js/components/catalog/catalog.js" async)
+script(src="js/components/content/rating/rating.js" async)

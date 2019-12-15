@@ -1,0 +1,53 @@
+@import 'helpers/postcss-reset/mobile.css';
+@import 'helpers/variables.scss';
+@import 'helpers/fonts.scss';
+@import 'helpers/base.scss';
+@import 'helpers/mixins.scss';
+
+@import '../components/header/header.scss';
+@import '../components/footer/footer.scss';
+
+/**************BEGIN: КОНТЕНТ ************************/
+@import '../components/content/accordion/accordion.scss';
+@import '../components/content/breadcrumbs/breadcrumbs.scss';
+@import '../components/content/checkbox/checkbox.scss';
+@import '../components/content/pagination/pagination.scss';
+@import '../components/content/radio-block/radio-block.scss';
+@import '../components/content/rating/rating.scss';
+@import '../components/content/items/item.scss';
+@import '../components/content/items/items-section.scss';
+@import '../components/content/select/select.scss';
+@import '../components/content/input/input.scss';
+@import '../components/content/buttons/buttons.scss';
+/***************END: КОНТЕНТ  *****************/
+
+/**************BEGIN: ФОРМЫ ************************/
+@import '../components/popup/light-modal.css';
+@import '../components/popup/custom-styles-modal.scss';
+@import '../components/popup/login/login.scss';
+/***************END: ФОРМЫ *****************/
+
+/**************BEGIN: СЛАЙДЕРЫ ************************/
+@import '../components/sliders/full-slider/full-slider.scss';
+@import '../components/sliders/product-slider/product-slider.scss';
+/***************END: СЛАЙДЕРЫ *****************/
+
+/*************** BEGIN: PRODUCT*****************/
+@import '../components/product/header/header.scss';
+@import '../components/product/description/description.scss';
+@import '../components/product/characteristics/characteristics.scss';
+@import '../components/product/files/files.scss';
+@import '../components/product/reviews/reviews.scss';
+/***************  END: PRODUCT  ****************/
+
+/**************** BEGIN: CATALOG*****************/
+@import '../components/catalog/toggles/toggles.scss';
+@import '../components/catalog/filters/filters.scss';
+@import '../components/catalog/items/list.scss';
+@import '../components/catalog/items/table.scss';
+@import '../components/catalog/catalog.scss';
+/***************END: CATALOG  *****************/
+
+/**************** BEGIN: COMPARE*****************/
+@import '../components/compare-table/compare-table.scss';
+/***************END: COMPARE  *****************/

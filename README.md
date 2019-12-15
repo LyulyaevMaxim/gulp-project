@@ -49,7 +49,7 @@ scss + css variables, grid, pug mixins, preload, async
 * чтобы оптимизировать папку public перед отправкой на сервер: **gulp build**
 
 ## Нюансы
-* приложение разбито на **"Страницы"** (файлы первого уровня в frontend/{html,css,js} и **"Компоненты"** (логические блоки: header, footer, head, product-items, ...; элементы: chekbox, acordion, rating, slider/gallery, slider/full..)
+* приложение разбито на **"Страницы"** (файлы первого уровня в src/{html,css,js} и **"Компоненты"** (логические блоки: header, footer, head, product-items, ...; элементы: chekbox, acordion, rating, slider/gallery, slider/full..)
 * для максимальной скорости работы **перекомпиляция запускается лишь при пересохранении файла "Страниц"** (чтобы обновить catalog.html нужно пересохранить catalog.pug, при сохранении product.pug пересоберётся только этот шаблон)
 
 ## Готовые компоненты
